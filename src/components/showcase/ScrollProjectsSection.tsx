@@ -15,7 +15,7 @@ const iconMap: Record<string, React.ReactNode> = {
 	"modera-parkside": <Building size={24} />,
 	"modera-decatur": <Building size={24} />,
 	"kaum-cultural-hub": <Landmark size={24} />,
-	"six-senses": <Mountain size={24} />,
+	"beach-resort": <Mountain size={24} />,
 };
 
 export const projectItems: CardItem[] = projectEntries.map((entry) => ({

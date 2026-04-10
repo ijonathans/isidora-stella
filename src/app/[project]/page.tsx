@@ -402,7 +402,7 @@ const projectDetails: ProjectDetail[] = [
     ],
   },
   {
-    id: "six-senses",
+    id: "beach-resort",
     heroImage:
       "/images/SCAD undergrad work/Six Senses/Six Senses 1.jpg",
     subtitle: "Luxury Hospitality — Presidential Suites",
@@ -543,7 +543,7 @@ export default async function ProjectPage({
                 {detail.overviewText}
               </p>
               <p className="mt-6 font-cormorant text-sm tracking-[0.15em] text-[#9a9590] italic">
-                {detail.id === "kaum-cultural-hub" || detail.id === "six-senses"
+                {detail.id === "kaum-cultural-hub" || detail.id === "beach-resort"
                   ? "Undergrad Work"
                   : "Work completed while at HBA."}
               </p>

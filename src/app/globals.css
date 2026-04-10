@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --font-cormorant: var(--font-cormorant);
-  --font-inter: var(--font-inter);
+  --font-family-cormorant: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-family-inter: var(--font-inter), 'Inter', system-ui, sans-serif;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 @keyframes scrollThumbDrop {

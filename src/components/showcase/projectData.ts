@@ -64,10 +64,10 @@ export const projectEntries: ProjectEntry[] = [
     linkHref: "/kaum-cultural-hub",
   },
   {
-    id: "six-senses",
+    id: "beach-resort",
     title: "Beach Resort",
     description: "Hospitality (2024) — Alys Beach, FL",
     imgSrc: "/images/SCAD undergrad work/Six Senses/Six Senses 1.png",
-    linkHref: "/six-senses",
+    linkHref: "/beach-resort",
   },
 ];
