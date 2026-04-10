@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Isidora Stella — Interior Designer",
-  description: "Award-winning interior designer at Hirsch Bedner Associates. Luxury hospitality and high-end residential design.",
+  description: "Award-winning interior designer. Luxury hospitality and high-end residential design.",
 };
 
 const cormorant = Cormorant_Garamond({
