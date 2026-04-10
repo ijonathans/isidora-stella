@@ -1,0 +1,1130 @@
+/* ================================================================
+   ISIDORA STELLA — Luxury Interior Design Showcase
+   CSS Module (converted from style.css)
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   0. Design Tokens — scoped to .pageWrapper
+---------------------------------------------------------------- */
+.pageWrapper {
+  /* Color Palette */
+  --color-cream: #f5f2ee;
+  --color-charcoal: #1a1917;
+  --color-gold: #b8955a;
+  --color-gold-light: #d4b483;
+  --color-sage: #8a9a84;
+  --color-sage-light: #c4cec1;
+  --color-warm-mid: #e8e3dc;
+  --color-mid-tone: #494441;
+  --color-overlay: rgba(14, 13, 12, 0.42);
+
+  /* Typography */
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-cormorant), Georgia, serif;
+
+  /* Spacing scale */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
+
+  /* Layout */
+  --max-w: 1440px;
+  --gutter: clamp(1.5rem, 5vw, 6rem);
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-index layers */
+  --z-video: 0;
+  --z-overlay: 1;
+  --z-content: 2;
+
+  /* Page-level resets */
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.pageWrapper *,
+.pageWrapper *::before,
+.pageWrapper *::after {
+  box-sizing: border-box;
+}
+
+/* Accessible focus ring */
+.pageWrapper :focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+/* Selection styling */
+.pageWrapper ::selection {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+/* ----------------------------------------------------------------
+   1. Utility / Shared Styles
+---------------------------------------------------------------- */
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: var(--sp-6);
+}
+
+/* ----------------------------------------------------------------
+   2. Hero Section
+---------------------------------------------------------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroVideoWrap {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-video);
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background:
+    linear-gradient(180deg,
+      rgba(14, 13, 12, 0.35) 0%,
+      rgba(14, 13, 12, 0.25) 50%,
+      rgba(14, 13, 12, 0.60) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: var(--z-content);
+  text-align: center;
+  color: var(--color-cream);
+  padding: 0 var(--gutter);
+}
+
+.heroEyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.65);
+  margin-bottom: var(--sp-6);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 14vw, 13rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--color-cream);
+  margin-bottom: var(--sp-8);
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+}
+
+.heroTagline {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: rgba(245, 242, 238, 0.8);
+}
+
+.heroScrollIndicator {
+  position: absolute;
+  bottom: var(--sp-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.heroScrollLabel {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.5);
+}
+
+.heroScrollLine {
+  width: 1px;
+  height: 64px;
+  background: rgba(245, 242, 238, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.heroScrollThumb {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(245, 242, 238, 0.7);
+  border-radius: 1px;
+  animation: scrollThumbDrop 2s var(--ease-out-expo) 1.8s infinite;
+}
+
+@keyframes scrollThumbDrop {
+  0% {
+    top: -50%;
+  }
+
+  60% {
+    top: 100%;
+  }
+
+  61% {
+    top: -50%;
+  }
+
+  100% {
+    top: -50%;
+  }
+}
+
+/* ----------------------------------------------------------------
+   3. Side Navigation
+---------------------------------------------------------------- */
+.sideNav {
+  position: fixed;
+  right: clamp(1.25rem, 3vw, 2.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  mix-blend-mode: normal;
+}
+
+.sideNavList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: flex-end;
+}
+
+.sideNavLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  flex-direction: row;
+  position: relative;
+}
+
+.sideNavLabel {
+  position: absolute;
+  right: calc(100% + 1.5rem);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo), color 0.3s;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.sideNavDot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(26, 25, 23, 0.25);
+  border: 1px solid rgba(26, 25, 23, 0.2);
+  transition: background 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo), border-color 0.3s;
+  flex-shrink: 0;
+}
+
+/* Active states */
+.sideNavLink.isActive .sideNavLabel {
+  color: var(--color-gold);
+}
+
+.sideNavLink.isActive .sideNavDot {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: scale(1.4);
+}
+
+/* Hover — expand label */
+.sideNavLink:hover .sideNavLabel,
+.sideNavLink.isActive .sideNavLabel {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sideNavLink:hover .sideNavDot {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* When over dark sections (hero, exploded, contact) — invert dots */
+.sideNav.isDark .sideNavDot {
+  background: rgba(245, 242, 238, 0.4);
+  border-color: rgba(245, 242, 238, 0.3);
+}
+
+.sideNav.isDark .sideNavLink.isActive .sideNavDot {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.sideNav.isDark .sideNavLink.isActive .sideNavLabel {
+  color: var(--color-gold);
+}
+
+.sideNav.isDark .sideNavLabel {
+  color: rgba(245, 242, 238, 0.8);
+}
+
+/* Mobile: hide side nav */
+@media (max-width: 768px) {
+  .sideNav {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------------------
+   4. Projects — Split Reveal
+---------------------------------------------------------------- */
+.projects {
+  padding: var(--sp-32) var(--gutter);
+  background: var(--color-cream);
+}
+
+.projectsInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 8rem);
+  align-items: start;
+}
+
+.projectsTextCol {
+  padding-top: var(--sp-8);
+}
+
+.projectsLabel {
+  margin-bottom: var(--sp-12);
+}
+
+.projectsProject {
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.projectsName {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+.projectsLocation {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-mid-tone);
+  margin-bottom: var(--sp-6);
+}
+
+.projectsDesc {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-charcoal);
+  max-width: 420px;
+}
+
+.projectsImageCol {
+  position: sticky;
+  top: clamp(4rem, 10vh, 8rem);
+}
+
+.projectsImageFrame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.projectsImageBlock {
+  width: 100%;
+  height: 100%;
+  transform-origin: center bottom;
+  transform: scale(0.82);
+  background:
+    linear-gradient(160deg,
+      #2a2620 0%,
+      #1a1917 30%,
+      #0e0d0c 60%,
+      #2d2926 100%);
+  position: relative;
+}
+
+/* Decorative texture lines on the image placeholder */
+.projectsImageBlock::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(184, 149, 90, 0.03) 0px,
+      rgba(184, 149, 90, 0.03) 1px,
+      transparent 1px,
+      transparent 80px),
+    repeating-linear-gradient(0deg,
+      rgba(184, 149, 90, 0.03) 0px,
+      rgba(184, 149, 90, 0.03) 1px,
+      transparent 1px,
+      transparent 80px);
+}
+
+.projectsImageBlock::after {
+  content: 'Résidence Alma — Paris';
+  position: absolute;
+  bottom: var(--sp-6);
+  left: var(--sp-6);
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(184, 149, 90, 0.5);
+}
+
+@media (max-width: 900px) {
+  .projectsInner {
+    grid-template-columns: 1fr;
+  }
+
+  .projectsImageCol {
+    position: relative;
+    top: 0;
+    order: -1;
+  }
+
+  .projectsImageFrame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .projectsImageBlock {
+    transform: scale(1) !important;
+  }
+}
+
+/* ----------------------------------------------------------------
+   5. Exploded View — Scroll-Driven Video Scrub
+---------------------------------------------------------------- */
+.exploded {
+  background: var(--color-charcoal);
+  height: 400vh;
+}
+
+.explodedPin {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-charcoal);
+}
+
+.explodedVideo {
+  display: none;
+}
+
+.explodedCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: var(--color-charcoal);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out-expo);
+}
+
+.explodedCanvas.isReady {
+  opacity: 1;
+}
+
+/* Loading overlay */
+.explodedLoader {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: var(--color-charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+
+.explodedLoader.isHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.explodedLoaderWordmark {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: rgba(245, 242, 238, 0.4);
+}
+
+.explodedLoaderTrack {
+  width: clamp(120px, 20vw, 200px);
+  height: 1px;
+  background: rgba(245, 242, 238, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.explodedLoaderFill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.1s linear;
+}
+
+.explodedLoaderLabel {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.2);
+}
+
+/* Gradient vignette */
+.explodedPin::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top,
+      rgba(26, 25, 23, 0.85) 0%,
+      rgba(26, 25, 23, 0.15) 35%,
+      transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Text overlay — bottom left */
+.explodedText {
+  position: absolute;
+  bottom: clamp(3rem, 8vh, 6rem);
+  left: var(--gutter);
+  z-index: 2;
+  max-width: 520px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+}
+
+.explodedText.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.explodedLabel {
+  color: var(--color-gold);
+}
+
+.explodedHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-cream);
+  margin-bottom: var(--sp-4);
+}
+
+.explodedSub {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(245, 242, 238, 0.5);
+  max-width: 380px;
+}
+
+/* Progress bar */
+.explodedBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(245, 242, 238, 0.07);
+  z-index: 3;
+}
+
+.explodedBarFill {
+  height: 100%;
+  width: 100%;
+  background: var(--color-gold);
+  transform-origin: left center;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+/* Mobile fallback video */
+.explodedMobileVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile: collapse */
+@media (max-width: 768px) {
+  .exploded {
+    height: auto;
+  }
+
+  .explodedPin {
+    height: 70vw;
+    min-height: 320px;
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .explodedCanvas {
+    object-fit: cover;
+  }
+
+  .explodedText {
+    bottom: var(--sp-6);
+    left: var(--sp-4);
+    opacity: 1;
+    transform: none;
+  }
+
+  .explodedHeading {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .explodedSub {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------------------
+   6. About Me — 2-column split
+---------------------------------------------------------------- */
+.about {
+  padding: var(--sp-32) var(--gutter);
+  background: var(--color-warm-mid);
+}
+
+.aboutInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(3rem, 6vw, 8rem);
+  align-items: start;
+}
+
+.aboutPortraitCol {
+  position: sticky;
+  top: clamp(4rem, 10vh, 8rem);
+}
+
+.aboutPortraitFrame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+}
+
+.aboutPortraitPlaceholder {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(160deg,
+      #2a2620 0%,
+      #1a1917 30%,
+      #0e0d0c 60%,
+      #2d2926 100%);
+  position: relative;
+}
+
+.aboutPortraitPlaceholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(184, 149, 90, 0.04) 0px,
+      rgba(184, 149, 90, 0.04) 1px,
+      transparent 1px,
+      transparent 60px),
+    repeating-linear-gradient(0deg,
+      rgba(184, 149, 90, 0.04) 0px,
+      rgba(184, 149, 90, 0.04) 1px,
+      transparent 1px,
+      transparent 60px);
+}
+
+.aboutPortraitPlaceholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: clamp(1.5rem, 3vw, 2.5rem);
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.5;
+}
+
+.aboutPortraitCaption {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid-tone);
+  margin-top: var(--sp-4);
+  opacity: 0.7;
+}
+
+.aboutBioCol {
+  padding-top: var(--sp-8);
+}
+
+.aboutHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-charcoal);
+  margin-top: var(--sp-4);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.aboutBody {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 350;
+  line-height: 1.85;
+  color: var(--color-mid-tone);
+  max-width: 600px;
+  margin-bottom: var(--sp-6);
+}
+
+.aboutCredentials {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid rgba(26, 25, 23, 0.1);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.aboutCredential {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--sp-4);
+  align-items: baseline;
+}
+
+.aboutCredentialLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.aboutCredentialValue {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+}
+
+@media (max-width: 900px) {
+  .aboutInner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+
+  .aboutPortraitCol {
+    position: relative;
+    top: 0;
+  }
+
+  .aboutPortraitFrame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aboutCredential {
+    grid-template-columns: 80px 1fr;
+  }
+}
+
+/* ----------------------------------------------------------------
+   7. Contact / Footer
+---------------------------------------------------------------- */
+.contact {
+  background: var(--color-charcoal);
+  color: var(--color-cream);
+  padding: var(--sp-32) var(--gutter) 0;
+}
+
+.contactInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 8vw, 10rem);
+  padding-bottom: var(--sp-24);
+  border-bottom: 1px solid rgba(245, 242, 238, 0.08);
+}
+
+.contactLabel {
+  color: var(--color-gold);
+}
+
+.contactHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-gold);
+  margin-bottom: var(--sp-12);
+}
+
+.contactForm {}
+
+.contactField {}
+
+.contactFieldLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.4);
+  margin-bottom: var(--sp-3);
+}
+
+.contactFieldRow {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(245, 242, 238, 0.2);
+  transition: border-color 0.3s var(--ease-in-out);
+}
+
+.contactFieldRow:focus-within {
+  border-color: var(--color-gold);
+}
+
+.contactInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-cream);
+  padding: var(--sp-4) 0;
+  caret-color: var(--color-gold);
+}
+
+.contactInput::placeholder {
+  color: rgba(245, 242, 238, 0.25);
+}
+
+.contactBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-4) 0 var(--sp-4) var(--sp-6);
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.3s var(--ease-in-out);
+  white-space: nowrap;
+}
+
+.contactBtn:hover {
+  color: var(--color-gold-light);
+}
+
+.contactBtnArrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.contactBtnArrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contactBtn:hover .contactBtnArrow {
+  transform: translateX(5px);
+}
+
+.contactFormMessage {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 300;
+  margin-top: var(--sp-4);
+  min-height: 1.2em;
+  color: var(--color-sage-light);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.contactFormMessage.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contactFormMessage.isError {
+  color: var(--color-gold);
+}
+
+.contactRight {
+  padding-top: var(--sp-12);
+}
+
+.contactAddress {
+  margin-bottom: var(--sp-12);
+}
+
+.contactAddressLabel {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.35);
+  margin-bottom: var(--sp-4);
+}
+
+.contactAddressBody {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(245, 242, 238, 0.65);
+  font-style: normal;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.contactSocialLink {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.35);
+  transition: color 0.3s var(--ease-in-out);
+  width: fit-content;
+}
+
+.contactSocialLink:hover {
+  color: var(--color-gold);
+}
+
+/* Footer bar */
+.contactFooterBar {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-8) 0;
+}
+
+.contactWordmark {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: rgba(245, 242, 238, 0.3);
+}
+
+.contactCopyright {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(245, 242, 238, 0.2);
+}
+
+@media (max-width: 768px) {
+  .contactInner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+
+  .contactRight {
+    padding-top: 0;
+  }
+
+  .contactFooterBar {
+    flex-direction: column;
+    gap: var(--sp-3);
+    text-align: center;
+  }
+}
+
+/* ----------------------------------------------------------------
+   8. Back to Portfolio link
+---------------------------------------------------------------- */
+.backLink {
+  position: fixed;
+  top: var(--sp-6);
+  left: clamp(1.25rem, 3vw, 2.5rem);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.5);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out-expo);
+}
+
+.backLink:hover {
+  color: var(--color-gold);
+}
+
+.backLink.isLight {
+  color: rgba(26, 25, 23, 0.4);
+}
+
+.backLink.isLight:hover {
+  color: var(--color-gold);
+}
+
+@media (max-width: 768px) {
+  .backLink {
+    top: var(--sp-4);
+    left: var(--sp-4);
+  }
+}
+
+/* ----------------------------------------------------------------
+   9. Global Responsive Adjustments
+---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .pageWrapper {
+    --gutter: clamp(1.5rem, 4vw, 4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ----------------------------------------------------------------
+   10. Reduced Motion
+---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .heroScrollThumb {
+    animation: none;
+  }
+
+  .pageWrapper *,
+  .pageWrapper *::before,
+  .pageWrapper *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
