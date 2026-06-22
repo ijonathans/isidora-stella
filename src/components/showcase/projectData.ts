@@ -9,15 +9,15 @@ export interface ProjectEntry {
 export const projectEntries: ProjectEntry[] = [
   {
     id: "punta-cana",
-    title: "Punta Cana",
+    title: "All-Inclusive Resort",
     description: "Resort (2026)",
     imgSrc: "/images/Punta Cana Renderings/N 01A_3Bay Bedroom_3514.01_2024-08-02_743.jpg",
     linkHref: "/punta-cana",
   },
   {
     id: "howarth-aesthetic",
-    title: "Howarth Aesthetic",
-    description: "Medical Spa (2024)",
+    title: "Howarth",
+    description: "Aesthetic Clinic (2025)",
     imgSrc: "/images/Howarth Aesthetic Renderings/N 04A_Reception_3524_2024-09-23_197.jpg",
     linkHref: "/howarth-aesthetic",
   },

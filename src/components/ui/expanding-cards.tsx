@@ -118,10 +118,6 @@ export const ExpandingCards = React.forwardRef<
               {item.title}
             </h3>
 
-            <div className="text-white/90 opacity-0 transition-all duration-300 delay-75 ease-out group-data-[active=true]:opacity-100">
-              {item.icon}
-            </div>
-
             <h3 className="text-3xl md:text-5xl font-light text-white opacity-0 transition-all duration-300 delay-150 ease-out group-data-[active=true]:opacity-100 font-cormorant tracking-wide">
               {item.title}
             </h3>

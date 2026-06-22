@@ -13,34 +13,50 @@ const fadeUp = (delay: number) => ({
 });
 
 export default function ContactFooter() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [msg, setMsg] = useState("");
   const [msgType, setMsgType] = useState<"success" | "error" | "">("");
   const [msgVisible, setMsgVisible] = useState(false);
   const [sending, setSending] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(email)) {
-      setMsg("Please enter a valid email address.");
+    if (!name.trim() || !emailRegex.test(email) || !message.trim()) {
+      setMsg("Please fill in all fields with a valid email address.");
       setMsgType("error");
       setMsgVisible(true);
       return;
     }
 
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) throw new Error();
+
       setMsg("Thank you — we'll be in touch shortly.");
       setMsgType("success");
-      setMsgVisible(true);
+      setName("");
       setEmail("");
+      setMessage("");
+    } catch {
+      setMsg("Something went wrong. Please try again.");
+      setMsgType("error");
+    } finally {
+      setSending(false);
+      setMsgVisible(true);
       if (timerRef.current) clearTimeout(timerRef.current);
       timerRef.current = setTimeout(() => setMsgVisible(false), 6000);
-    }, 1400);
+    }
   };
 
   return (
@@ -48,13 +64,63 @@ export default function ContactFooter() {
       <div className={styles.contactInner}>
         <div>
           <motion.p {...fadeUp(0)} className={cn(styles.sectionLabel, styles.contactLabel)}>
-            Let&apos;s Create Together
+            Let&apos;s Begin a Conversation
           </motion.p>
           <motion.h2 {...fadeUp(0.1)} className={styles.contactHeading}>
-            Begin a<br />Conversation.
+            For a colaborations, project inquireies <br /> or creative conversations, feel free to reach out.
           </motion.h2>
 
-          <motion.form {...fadeUp(0.2)} className={styles.contactForm} onSubmit={handleSubmit} noValidate>
+          <motion.div {...fadeUp(0.2)} className={styles.contactInfo}>
+            <div className={styles.contactAddress}>
+              <p className={styles.contactAddressLabel}>Email</p>
+              <address className={styles.contactAddressBody}>
+                <a href="mailto:istellay@gmail.com" style={{ textDecoration: "none", color: "inherit" }}>istellay@gmail.com</a>
+              </address>
+            </div>
+
+            <div className={styles.contactAddress}>
+              <p className={styles.contactAddressLabel}>Phone</p>
+              <address className={styles.contactAddressBody}>
+                <a href="tel:+16267642632" style={{ textDecoration: "none", color: "inherit" }}>+1 (626) 764 2632</a>
+              </address>
+            </div>
+
+            <div className={styles.contactLinks}>
+              <a
+                href="https://www.linkedin.com/in/isidorastellayubelia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactSocialLink}
+                aria-label="LinkedIn"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div {...fadeUp(0.35)} className={styles.contactRight}>
+          <motion.form className={styles.contactForm} onSubmit={handleSubmit} noValidate>
+            <div className={styles.contactField}>
+              <label htmlFor="contactName" className={styles.contactFieldLabel}>
+                Your name
+              </label>
+              <div className={styles.contactFieldRow}>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  className={styles.contactInput}
+                  placeholder="Jane Doe"
+                  autoComplete="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={sending}
+                />
+              </div>
+            </div>
+
             <div className={styles.contactField}>
               <label htmlFor="contactEmail" className={styles.contactFieldLabel}>
                 Your email address
@@ -72,54 +138,54 @@ export default function ContactFooter() {
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={sending}
                 />
-                <button type="submit" className={styles.contactBtn} aria-label="Send enquiry" disabled={sending}>
-                  <span>{sending ? "Sending..." : "Send"}</span>
-                  <span className={styles.contactBtnArrow} aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M5 12h14M13 6l6 6-6 6"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </button>
               </div>
-              <p
-                className={cn(
-                  styles.contactFormMessage,
-                  msgVisible && styles.isVisible,
-                  msgType === "error" && styles.isError
-                )}
-                aria-live="polite"
-              >
-                {msg}
-              </p>
             </div>
+
+            <div className={styles.contactField}>
+              <label htmlFor="contactMessage" className={styles.contactFieldLabel}>
+                Your message
+              </label>
+              <div className={styles.contactFieldRow}>
+                <textarea
+                  id="contactMessage"
+                  name="message"
+                  className={styles.contactTextarea}
+                  placeholder="Tell us about your project..."
+                  required
+                  rows={3}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  disabled={sending}
+                />
+              </div>
+            </div>
+
+            <button type="submit" className={styles.contactBtn} aria-label="Send enquiry" disabled={sending}>
+              <span>{sending ? "Sending..." : "Send"}</span>
+              <span className={styles.contactBtnArrow} aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+
+            <p
+              className={cn(
+                styles.contactFormMessage,
+                msgVisible && styles.isVisible,
+                msgType === "error" && styles.isError
+              )}
+              aria-live="polite"
+            >
+              {msg}
+            </p>
           </motion.form>
-        </div>
-
-        <motion.div {...fadeUp(0.35)} className={styles.contactRight}>
-          <div className={styles.contactAddress}>
-            <p className={styles.contactAddressLabel}>Email</p>
-            <address className={styles.contactAddressBody}>
-              <a href="mailto:istellay@gmail.com" style={{ textDecoration: "none", color: "inherit" }}>istellay@gmail.com</a>
-            </address>
-          </div>
-
-          <div className={styles.contactLinks}>
-            <a href="#" className={styles.contactSocialLink} aria-label="Instagram">
-              Instagram
-            </a>
-            <a href="#" className={styles.contactSocialLink} aria-label="Pinterest">
-              Pinterest
-            </a>
-            <a href="#" className={styles.contactSocialLink} aria-label="Architectural Digest feature">
-              AD Feature
-            </a>
-          </div>
         </motion.div>
       </div>
 

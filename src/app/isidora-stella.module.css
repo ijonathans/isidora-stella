@@ -85,6 +85,7 @@
   text-transform: uppercase;
   color: var(--color-gold);
   display: block;
+  margin-top: 0;
   margin-bottom: var(--sp-6);
 }
 
@@ -122,9 +123,9 @@
   z-index: var(--z-overlay);
   background:
     linear-gradient(180deg,
-      rgba(14, 13, 12, 0.35) 0%,
-      rgba(14, 13, 12, 0.25) 50%,
-      rgba(14, 13, 12, 0.60) 100%);
+      rgba(245, 242, 238, 0.55) 0%,
+      rgba(245, 242, 238, 0.45) 50%,
+      rgba(245, 242, 238, 0.65) 100%);
 }
 
 .heroContent {
@@ -693,15 +694,19 @@
 }
 
 .aboutPortraitCol {
-  position: sticky;
-  top: clamp(4rem, 10vh, 8rem);
+  position: relative;
 }
 
 .aboutPortraitFrame {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  min-height: 480px;
   overflow: hidden;
   position: relative;
+}
+
+.aboutPortraitImage {
+  object-fit: cover;
+  object-position: center;
 }
 
 .aboutPortraitPlaceholder {
@@ -756,7 +761,14 @@
 }
 
 .aboutBioCol {
-  padding-top: var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.aboutIntro {
+  display: flex;
+  flex-direction: column;
 }
 
 .aboutHeading {
@@ -825,7 +837,8 @@
   }
 
   .aboutPortraitFrame {
-    aspect-ratio: 4 / 3;
+    height: 320px;
+    min-height: 0;
   }
 
   .aboutCredential {
@@ -853,27 +866,39 @@
 }
 
 .contactLabel {
-  color: var(--color-gold);
-}
-
-.contactHeading {
   font-family: var(--font-display);
   font-size: clamp(2.75rem, 6vw, 5.5rem);
   font-weight: 300;
   line-height: 1.05;
   letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--color-gold);
+  margin-bottom: var(--sp-6);
+}
+
+.contactHeading {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
   color: var(--color-gold);
   margin-bottom: var(--sp-12);
 }
 
 .contactForm {}
 
-.contactField {}
+.contactInfo {}
+
+.contactField {
+  margin-bottom: var(--sp-6);
+}
 
 .contactFieldLabel {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -898,7 +923,7 @@
   border: none;
   outline: none;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 300;
   color: var(--color-cream);
   padding: var(--sp-4) 0;
@@ -909,6 +934,25 @@
   color: rgba(245, 242, 238, 0.25);
 }
 
+.contactTextarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: var(--color-cream);
+  padding: var(--sp-4) 0;
+  caret-color: var(--color-gold);
+  resize: vertical;
+  min-height: 3.5em;
+}
+
+.contactTextarea::placeholder {
+  color: rgba(245, 242, 238, 0.25);
+}
+
 .contactBtn {
   background: transparent;
   border: none;
@@ -916,10 +960,10 @@
   display: flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: var(--sp-4) 0 var(--sp-4) var(--sp-6);
+  padding: var(--sp-4) var(--sp-6) var(--sp-4) 0;
   color: var(--color-gold);
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -948,7 +992,7 @@
 
 .contactFormMessage {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 300;
   margin-top: var(--sp-4);
   min-height: 1.2em;
@@ -977,7 +1021,7 @@
 
 .contactAddressLabel {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -987,7 +1031,7 @@
 
 .contactAddressBody {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   font-weight: 300;
   line-height: 1.9;
   color: rgba(245, 242, 238, 0.65);
@@ -1002,7 +1046,7 @@
 
 .contactSocialLink {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;

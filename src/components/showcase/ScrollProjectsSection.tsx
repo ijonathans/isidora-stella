@@ -56,11 +56,11 @@ export default function ScrollProjectsSection() {
 		<section ref={sectionRef} className="relative w-full py-24 md:py-32 bg-[#FAF9F6]" id="projects">
 			<div className="max-w-7xl mx-auto px-6 mb-12 md:mb-24 text-center">
 				<h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light text-[#1a1a1a] mb-6">
-					Portfolio
+					Selected Work
 				</h2>
 				<div className="w-16 md:w-24 h-[1px] bg-[#d4af37] mx-auto opacity-60" />
 				<p className="mt-8 text-sm md:text-base font-cormorant tracking-[0.15em] uppercase text-[#666666] max-w-2xl mx-auto">
-					A curated selection of my distinctive projects, spanning luxury hospitality and high-end multifamily developments.
+					A curated selection of hospitality and lifestyle interiors shaped by story, materiality, and experience.
 				</p>
 			</div>
 

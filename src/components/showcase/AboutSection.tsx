@@ -1,5 +1,7 @@
 "use client";
 
+import { useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "@/app/isidora-stella.module.css";
 
@@ -11,34 +13,60 @@ const fadeUp = (delay: number) => ({
 });
 
 export default function AboutSection() {
+  const bioColRef = useRef<HTMLDivElement>(null);
+  const [bioHeight, setBioHeight] = useState<number>();
+
+  useLayoutEffect(() => {
+    const bioCol = bioColRef.current;
+    if (!bioCol) return;
+
+    const mediaQuery = window.matchMedia("(min-width: 901px)");
+    const updateHeight = () => {
+      setBioHeight(mediaQuery.matches ? bioCol.offsetHeight : undefined);
+    };
+    updateHeight();
+
+    const resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(bioCol);
+    mediaQuery.addEventListener("change", updateHeight);
+    return () => {
+      resizeObserver.disconnect();
+      mediaQuery.removeEventListener("change", updateHeight);
+    };
+  }, []);
+
   return (
     <section className={styles.about} id="about">
       <div className={styles.aboutInner}>
         <motion.div {...fadeUp(0)} className={styles.aboutPortraitCol}>
-          <div className={styles.aboutPortraitFrame}>
-            <div className={styles.aboutPortraitPlaceholder} aria-hidden="true" />
-            <div className={styles.aboutPortraitCaption}>Isidora Stella — Atlanta & Jakarta</div>
+          <div
+            className={styles.aboutPortraitFrame}
+            style={bioHeight ? { height: bioHeight } : undefined}
+          >
+            <Image
+              src="/images/potrait.png"
+              alt="Isidora Stella"
+              fill
+              className={styles.aboutPortraitImage}
+              priority
+            />
           </div>
         </motion.div>
 
-        <motion.div {...fadeUp(0.18)} className={styles.aboutBioCol}>
-          <p className={styles.sectionLabel}>About Me</p>
-          <h2 className={styles.aboutHeading}>
-            Designing spaces<br />that elevate<br />how people live.
-          </h2>
+        <motion.div {...fadeUp(0.18)} className={styles.aboutBioCol} ref={bioColRef}>
+          <div className={styles.aboutIntro}>
+            <p className={styles.sectionLabel}>About Me</p>
+            <h2 className={styles.aboutHeading}>
+              Designing spaces with story<br />atmosphere, and a sense of place.
+            </h2>
 
-          <p className={styles.aboutBody}>
-            I am Isidora Stella Yubelia — an award-winning interior designer currently
-            at Hirsch Bedner Associates (HBA), one of the world&apos;s leading hospitality
-            design firms. Based between Atlanta, GA and Jakarta, Indonesia, I specialize
-            in luxury hospitality and high-end multifamily developments.
-          </p>
-          <p className={styles.aboutBody}>
-            My work bridges cultural contexts — drawing from my upbringing in Jakarta and
-            my formal training at the Savannah College of Art and Design. Every project
-            begins with deep research into site, culture, and the human experience of space.
-            I craft environments where materiality, light, and proportion serve a singular vision.
-          </p>
+            <p className={styles.aboutBody}>
+              Hi! I’m Stella, a hospitality interior designer shaped by Jakarta roots, Atlanta experience,
+              and a curiosity for how people connect with spaces.From luxury hospitality to multifamily and
+              branded environments, I create interiors that feel thoughtful, inviting, and memorable.
+              My work blends culture, materiality, and guest experience with the technical precision needed to bring a concept to life.
+            </p>
+          </div>
 
           <div className={styles.aboutCredentials}>
             <div className={styles.aboutCredential}>
@@ -48,15 +76,15 @@ export default function AboutSection() {
               </span>
             </div>
             <div className={styles.aboutCredential}>
-              <span className={styles.aboutCredentialLabel}>Current Role</span>
+              <span className={styles.aboutCredentialLabel}>Approach</span>
               <span className={styles.aboutCredentialValue}>
-                Interior Designer — Hirsch Bedner Associates (HBA), Atlanta
+                Culture | Materiality | Guest Experience | Technical Precision
               </span>
             </div>
             <div className={styles.aboutCredential}>
-              <span className={styles.aboutCredentialLabel}>Practice</span>
+              <span className={styles.aboutCredentialLabel}>Focus</span>
               <span className={styles.aboutCredentialValue}>
-                Luxury Hospitality · High-End Multifamily · Residential
+                Hospitality Interiors | FF&E | Concept Development | Design Documentation | Construct Administration
               </span>
             </div>
           </div>

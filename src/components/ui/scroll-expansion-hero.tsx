@@ -20,6 +20,7 @@ interface ScrollExpandMediaProps {
   mediaSrc: string;
   posterSrc?: string;
   bgImageSrc: string;
+  bgMediaType?: 'video' | 'image';
   title?: string;
   date?: string;
   scrollToExpand?: string;
@@ -32,6 +33,7 @@ const ScrollExpandMedia = ({
   mediaSrc,
   posterSrc,
   bgImageSrc,
+  bgMediaType = 'image',
   title,
   date,
   scrollToExpand,
@@ -45,8 +47,11 @@ const ScrollExpandMedia = ({
   const [isMobileState, setIsMobileState] = useState<boolean>(false);
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const targetProgressRef = useRef<number>(0);
+  const animationFrameRef = useRef<number | null>(null);
 
   useEffect(() => {
+    targetProgressRef.current = 0;
     setScrollProgress(0);
     setShowContent(false);
     setMediaFullyExpanded(false);
@@ -56,6 +61,7 @@ const ScrollExpandMedia = ({
   // animation entirely so the browser can scroll to the target section.
   useEffect(() => {
     if (typeof window !== 'undefined' && window.location.hash) {
+      targetProgressRef.current = 1;
       setScrollProgress(1);
       setMediaFullyExpanded(true);
       setShowContent(true);
@@ -70,24 +76,46 @@ const ScrollExpandMedia = ({
     }
   }, []);
 
+  // Smoothly eases the rendered scrollProgress toward targetProgressRef every
+  // frame, so raw wheel/touch deltas (which arrive in uneven bursts) never
+  // snap the state directly — this is what makes the expansion feel fluid.
+  useEffect(() => {
+    const tick = () => {
+      setScrollProgress((current) => {
+        const target = targetProgressRef.current;
+        const next = current + (target - current) * 0.12;
+        return Math.abs(target - next) < 0.0005 ? target : next;
+      });
+      animationFrameRef.current = requestAnimationFrame(tick);
+    };
+
+    animationFrameRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, []);
+
   useEffect(() => {
     const handleWheel = (e: globalThis.WheelEvent) => {
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
         setMediaFullyExpanded(false);
+        targetProgressRef.current = 1;
         e.preventDefault();
       } else if (!mediaFullyExpanded) {
         e.preventDefault();
-        const scrollDelta = e.deltaY * 0.0018;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
+        const scrollDelta = e.deltaY * 0.0009;
+        const newTarget = Math.min(
+          Math.max(targetProgressRef.current + scrollDelta, 0),
           1
         );
-        setScrollProgress(newProgress);
+        targetProgressRef.current = newTarget;
 
-        if (newProgress >= 1) {
+        if (newTarget >= 1) {
           setMediaFullyExpanded(true);
           setShowContent(true);
-        } else if (newProgress < 0.75) {
+        } else if (newTarget < 0.75) {
           setShowContent(false);
         }
       }
@@ -105,21 +133,22 @@ const ScrollExpandMedia = ({
 
       if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 5) {
         setMediaFullyExpanded(false);
+        targetProgressRef.current = 1;
         e.preventDefault();
       } else if (!mediaFullyExpanded) {
         e.preventDefault();
-        const scrollFactor = deltaY < 0 ? 0.008 : 0.005;
+        const scrollFactor = deltaY < 0 ? 0.004 : 0.0025;
         const scrollDelta = deltaY * scrollFactor;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
+        const newTarget = Math.min(
+          Math.max(targetProgressRef.current + scrollDelta, 0),
           1
         );
-        setScrollProgress(newProgress);
+        targetProgressRef.current = newTarget;
 
-        if (newProgress >= 1) {
+        if (newTarget >= 1) {
           setMediaFullyExpanded(true);
           setShowContent(true);
-        } else if (newProgress < 0.75) {
+        } else if (newTarget < 0.75) {
           setShowContent(false);
         }
 
@@ -150,7 +179,7 @@ const ScrollExpandMedia = ({
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [scrollProgress, mediaFullyExpanded, touchStartY]);
+  }, [mediaFullyExpanded, touchStartY]);
 
   useEffect(() => {
     const checkIfMobile = (): void => {
@@ -184,13 +213,27 @@ const ScrollExpandMedia = ({
             animate={{ opacity: 1 - scrollProgress }}
             transition={{ duration: 0.1 }}
           >
-            <img
-              src={bgImageSrc}
-              alt='Background'
-              className='w-screen h-screen object-cover object-center'
-              loading="eager"
-            />
-            <div className='absolute inset-0 bg-black/60' />
+            {bgMediaType === 'video' ? (
+              <video
+                src={bgImageSrc}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload='auto'
+                className='w-screen h-screen object-cover object-center'
+                controls={false}
+                disablePictureInPicture
+              />
+            ) : (
+              <img
+                src={bgImageSrc}
+                alt='Background'
+                className='w-screen h-screen object-cover object-center'
+                loading="eager"
+              />
+            )}
+            <div className='absolute inset-0 bg-black/80' />
           </motion.div>
 
           <div className='container mx-auto flex flex-col items-center justify-start relative z-10'>

@@ -12,29 +12,39 @@ const fadeUp = (delay: number) => ({
 
 const accolades = [
   {
-    award: "MUSE Design Awards",
-    category: "Interior Design — Gold",
-    year: "2024",
+    award: "Young Designers Collective (YDC)",
+    category: "Ambassador for Atlanta's emerging design community, supporting curated events and industry engagement.",
+    year: "2026",
+  },
+  {
+    award: "30 Under 30 Interior Design",
+    category: "Named along emerging designers under 30 for design excellence, leadership, and industry impact.",
+    year: "2025",
   },
   {
     award: "IDA Design Awards",
-    category: "International Design Excellence",
+    category: "Bronze recognition for Conceptual Interior Design.",
     year: "2024",
   },
   {
-    award: "ASID Gold Award",
-    category: "Interior Design Achievement",
+    award: "MUSE Design Awards",
+    category: "Silver recognition for Cultural Interior Design.",
     year: "2023",
   },
   {
-    award: "ASID Portfolio Award",
-    category: "Emerging Designer Portfolio",
+    award: "ASID Design Excellence Award",
+    category: "Gold recognition for Unique Space Design and Hospitality Design Concepts; Silver reconginition for Residential Design Concept.",
     year: "2023",
   },
   {
     award: "Metropolis Future100",
-    category: "Next Generation of Design Leaders",
-    year: "2024",
+    category: "Named among North America's rising design talents reimagining the future of Interior Design.",
+    year: "2022",
+  },
+  {
+    award: "ASID Portfolio Competition",
+    category: "Portfolio winner, recognized for concept, content, and contextual storytelling.",
+    year: "2022",
   },
 ];
 
@@ -43,13 +53,8 @@ export default function PressSection() {
     <section id="press" className="relative w-full py-24 md:py-32 bg-[#FAF9F6]">
       <div className="max-w-5xl mx-auto px-6">
         <motion.div {...fadeUp(0)} className="text-center mb-16 md:mb-24">
-          <p
-            className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#999] mb-6"
-          >
-            Recognition
-          </p>
           <h2 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-light text-[#1a1a1a] mb-6">
-            Press & Accolades
+            Awards & Recognition
           </h2>
           <div className="w-16 md:w-24 h-[1px] bg-[#d4af37] mx-auto opacity-60" />
         </motion.div>
@@ -59,7 +64,7 @@ export default function PressSection() {
             <motion.div
               key={item.award}
               {...fadeUp(0.08 * (i + 1))}
-              className="group border-t border-[#e0dcd6] py-8 md:py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-8 transition-colors duration-300 hover:bg-[#f0ece6]/50 px-4 md:px-8 -mx-4 md:-mx-8"
+              className="group border-t border-[#e0dcd6] py-4 md:py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-8 transition-colors duration-300 hover:bg-[#f0ece6]/50 px-4 md:px-8 -mx-4 md:-mx-8"
             >
               <div className="flex-1">
                 <h3 className="font-cormorant text-2xl md:text-3xl font-light text-[#1a1a1a] group-hover:text-[#d4af37] transition-colors duration-300">

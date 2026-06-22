@@ -19,8 +19,9 @@ interface ProjectDetail {
   type: string;
   scope: string;
   stats: ProjectStat[];
-  overviewText: string;
-  narrativeText: string;
+  mediaType: "Photography" | "Rendering";
+  tagline: string;
+  overviewText: string[];
   galleryImages: { src: string; alt: string; span?: "wide" | "tall" | "normal" }[];
 }
 
@@ -28,22 +29,23 @@ const projectDetails: ProjectDetail[] = [
   {
     id: "modera-parkside",
     heroImage:
-      "/images/Modera Parkside Photos/0012-davidmadisonphotography-com-modera-parkside-atlanta-georgia.avif",
-    subtitle: "Luxury Multifamily Interiors",
-    location: "Atlanta, GA",
+      "/images/Modera Parkside Photos/Modera-Parkside (5).avif",
+    subtitle: "Multifamily",
+    location: "Atlanta, Georgia",
     year: "2025",
     type: "Multifamily Residential",
     scope: "Interior Design",
     stats: [
-      { label: "Location", value: "Atlanta, GA" },
-      { label: "Type", value: "Multifamily" },
-      { label: "Year", value: "2025" },
-      { label: "Scope", value: "Interior Design" },
+      { label: "Role", value: "Drawing, FF&E, Finishes and Installation" },
+      { label: "Scope", value: "Designer responsible for FF&E specifications, technical development, project documentation, phase execution, and on-site coordination of FF&E installation." },
     ],
-    overviewText:
-      "Modera Parkside redefines urban living in Atlanta's vibrant Westside neighborhood. The design embraces warm contemporary finishes — natural oak, brushed bronze, and textured stone — to craft communal spaces that feel unmistakably residential. Lobby and amenity areas balance openness with intimacy, anchoring residents in a sense of place.",
-    narrativeText:
-      "The design language draws from Atlanta's evolving urban identity: grounded, warm, and quietly sophisticated. Material choices prioritize tactility and longevity — surfaces that age gracefully and spaces that remain inviting through decades of use. Each amenity zone was conceived as a distinct atmosphere within a coherent whole, rewarding daily discovery.",
+    mediaType: "Photography",
+    tagline: "Between Park and Skyline",
+    overviewText: [
+      "Located in Midtown Atlanta, this multifamily project is shaped by the contrast between city energy and parkside calm. With views toward both the urban skyline and nearby green space, the design creates a residential experience that feels connected to the pace of the city while offering moments of retreat.",
+      "The interiors balance sophistication with approachability through warm woods, layered textures, soft neutrals, and refined accents. Shared amenity spaces are designed to feel flexible and social, supporting the way residents move between work, wellness, leisure, and gathering.",
+      "Rather than treating the city and landscape as separate influences, the project brings them into one cohesive experience: polished, comfortable, and grounded in its Midtown setting."
+    ],
     galleryImages: [
       {
         src: "/images/Modera Parkside Photos/Modera-Parkside (1).avif",
@@ -56,7 +58,7 @@ const projectDetails: ProjectDetail[] = [
         span: "normal",
       },
       {
-        src: "/images/Modera Parkside Photos/Modera-Parkside (3).avif",
+        src: "/images/Modera Parkside Photos/Modera-Parkside (7).avif",
         alt: "Modera Parkside — Amenity Space",
         span: "tall",
       },
@@ -66,13 +68,13 @@ const projectDetails: ProjectDetail[] = [
         span: "normal",
       },
       {
-        src: "/images/Modera Parkside Photos/Modera-Parkside (5).avif",
-        alt: "Modera Parkside — Corridor Detail",
-        span: "normal",
+        src: "/images/Modera Parkside Photos/0012-davidmadisonphotography-com-modera-parkside-atlanta-georgia.avif",
+        alt: "Modera Parkside — Interior Detail",
+        span: "tall",
       },
       {
-        src: "/images/Modera Parkside Photos/DSC09662.avif",
-        alt: "Modera Parkside — Interior Detail",
+        src: "/images/Modera Parkside Photos/Modera-Parkside.avif",
+        alt: "Modera Parkside — Corridor Detail",
         span: "wide",
       },
     ],
@@ -80,22 +82,22 @@ const projectDetails: ProjectDetail[] = [
   {
     id: "modera-mcgavock",
     heroImage:
-      "/images/Modera McGavock Nashville Photos/0004-davidmadisonphotography-com-modera-mcgavock-nashville-tennessee.avif",
-    subtitle: "Luxury Multifamily Interiors",
-    location: "Nashville, TN",
+      "/images/Modera McGavock Nashville Photos/0030-davidmadisonphotography-com-modera-mcgavock-nashville-tenneessee-jpg.avif",
+    subtitle: "Multifamily",
+    location: "Nashville, Tennessee",
     year: "2025",
     type: "Multifamily Residential",
     scope: "Interior Design",
     stats: [
-      { label: "Location", value: "Nashville, TN" },
-      { label: "Type", value: "Multifamily" },
-      { label: "Year", value: "2025" },
-      { label: "Scope", value: "Interior Design" },
+      { label: "Role", value: "Drawing, FF&E, Finishes and Installation" },
+      { label: "Scope", value: "Designer responsible for FF&E specifications, technical development, project documentation, phase execution, and on-site coordination of FF&E installation." },
     ],
-    overviewText:
-      "Modera McGavock channels Nashville's creative energy into a refined residential experience. Sophisticated lounge areas, curated art moments, and a material palette rooted in dark walnut, aged brass, and honed marble establish an atmosphere that honors Music City's cultural depth without literal reference. Every space reads as composed, considered, and enduring.",
-    narrativeText:
-      "Nashville demanded a design that could hold its own against the city's growing architectural ambition. The approach was disciplined restraint — rich materials in restrained configurations, lighting that shifts the mood from morning coffee to evening cocktail. Communal spaces were programmed for genuine gathering, not performative amenity, resulting in interiors that residents claim as their own.",
+    mediaType: "Photography",
+    tagline: "Refined Interiors for Music City's Creative Energy",
+    overviewText: [
+      "Located in Nashville’s South Gulch, this multifamily project brings together the energy of the city with the comfort of a refined residential setting. The design responds to its urban context through warm materials, tailored details, and amenity spaces that support daily life, gathering, work, and retreat.",
+      "Rather than leaning into overt music references, the interiors take a more composed approach. Layered textures, clean lines, soft neutrals, rich wood tones, and polished accents create a sense of ease while still feeling connected to Nashville’s creative pace.",
+      "Shared spaces are designed to feel flexible and welcoming, from lounge and coworking areas to fitness, rooftop, and social amenities. The result is a residential experience that feels modern, grounded, and distinctly tied to the rhythm of the city."],
     galleryImages: [
       {
         src: "/images/Modera McGavock Nashville Photos/0016-davidmadisonphotography-com-modera-mcgavock-nashville-tenneessee-jpg.avif",
@@ -123,7 +125,7 @@ const projectDetails: ProjectDetail[] = [
         span: "normal",
       },
       {
-        src: "/images/Modera McGavock Nashville Photos/0030-davidmadisonphotography-com-modera-mcgavock-nashville-tenneessee-jpg.avif",
+        src: "/images/Modera McGavock Nashville Photos/Modera_McGavock_01.jpeg",
         alt: "Modera McGavock — Resident Lounge",
         span: "wide",
       },
@@ -133,21 +135,22 @@ const projectDetails: ProjectDetail[] = [
     id: "woodlawn",
     heroImage:
       "/images/225 Woodlawn Renderings/N 04A_L1 Reception_3512_2022-10-19_1064.jpg",
-    subtitle: "Multifamily Residential",
-    location: "Charlotte, NC",
+    subtitle: "Multifamily",
+    location: "Charlotte, North Carolina",
     year: "2025",
     type: "Multifamily Residential",
     scope: "Interior Design — Amenities",
     stats: [
-      { label: "Location", value: "Charlotte, NC" },
-      { label: "Type", value: "Multifamily" },
-      { label: "Year", value: "2025" },
-      { label: "Scope", value: "Interior Design" },
+      { label: "Role", value: "Drawing,FF&E and Finishes" },
+      { label: "Scope", value: "Developed construction drawings, FF&E specifications, rendering coordination, project documentation, and phase execution support across the multifamily amenity spaces." },
     ],
-    overviewText:
-      "225 Woodlawn Road brings a considered hospitality sensibility to Charlotte's multifamily market. Reception, co-working lounges, and fitness areas are designed as a continuous experience — each space flowing into the next through consistent materiality and restrained elegance.",
-    narrativeText:
-      "Charlotte's energy demanded interiors that could serve both focused work and relaxed gathering. Warm wood tones, layered lighting, and furniture-grade millwork create environments that feel curated rather than corporate. The design rewards lingering — every seat has purpose, every surface invites touch.",
+    mediaType: "Rendering",
+    tagline: "The Urban Reset",
+    overviewText: [
+      "This new multifamily development in Charlotte is designed as a layered retreat within the pace of the city. The amenity spaces balance urban energy with residential comfort, creating places where residents can gather, work, recharge and move through their daily routines with ease.",
+      "The design pairs industrial materials with warmth and tactility. Concrete, dark ceilings, metal accents, and graphic lighting establish an urban edge, while wood, stone, saturated textiles, plush seating, and patterned rughs soften the experience. Bold moments of color and texture give each shared space a distinct identity without making the interiors feel overly themed.",
+      "From the lobby and lounge to the game room and fitness areas, the project creates a sequence of amenities that feel active, social and grounded. The result is a multifamily environment that supports city living while offering a strong sense of comfort and retreat."
+    ],
     galleryImages: [
       {
         src: "/images/225 Woodlawn Renderings/N 05A_L1 Leasing_3512_2022-09-23_310-edited.jpg",
@@ -172,7 +175,7 @@ const projectDetails: ProjectDetail[] = [
       {
         src: "/images/225 Woodlawn Renderings/N 11A_L3 Gym_3510_2022-10-20_877.jpg",
         alt: "225 Woodlawn — Fitness Center",
-        span: "wide",
+        span: "normal",
       },
     ],
   },
@@ -180,21 +183,22 @@ const projectDetails: ProjectDetail[] = [
     id: "four-seasons-spa",
     heroImage:
       "/images/Four Seasons Spa Renderings/N 13A_Spa  Reception_Opt 1_3506_2022-08-25_310.jpg",
-    subtitle: "Hotel Spa Renovation",
-    location: "Atlanta, GA",
+    subtitle: "Spa/ Wellness",
+    location: "Atlanta, Georgia",
     year: "2024",
     type: "Hospitality — Hotel Renovation",
     scope: "Spa Interior Design",
     stats: [
-      { label: "Location", value: "Atlanta, GA" },
-      { label: "Type", value: "Hotel Renovation" },
-      { label: "Year", value: "2024" },
-      { label: "Scope", value: "Spa Design" },
+      { label: "Role", value: "FF&E and Finishes" },
+      { label: "Scope", value: "Supported initial concept development, space planning, FF&E and finish selections, site visits, client coordination, and design documentation for the spa renovation." },
     ],
-    overviewText:
-      "A full renovation of Four Seasons Atlanta's spa level, reimagining reception, retail, treatment rooms, and relaxation areas. Natural stone, diffused lighting, and a restrained palette of sage, sand, and warm white transform the space into an urban sanctuary.",
-    narrativeText:
-      "Luxury hospitality demands that every moment — from arrival to departure — feels choreographed yet effortless. The design strips away visual noise, letting material texture and soft light carry the experience. Treatment rooms balance clinical precision with residential warmth, ensuring guests feel cared for, not processed.",
+    mediaType: "Photography",
+    tagline: "Sculpted by Light",
+    overviewText: [
+      "Located within a Midtown Atlanta hotel, this spa renovation reimagines the guest journey through softness, luminosity, and layered texture. Light becomes a central design element, moving across curved walls, reflective stone, translucent partitions, and tactile surfaces to create a calm progression from arrival to treatment",
+      "A palette of cream, sand, warm wood, marble, and brushed metal gives the spa a quiet sense of refinement. Sculptural lighting, soft architectural curves, and delicate art moments add depth without making the space feel heavy.",
+      "Treatment rooms, relaxation areas and amenity spaces are composed to support a slower, more restorative rhythm. The resultis an intimate, polished spa environment shaped by atmosphere rather than excess."
+    ],
     galleryImages: [
       {
         src: "/images/Four Seasons Spa Renderings/N 13C_Spa Entry_Opt 1_3506_2022-08-25_772.jpg",
@@ -212,11 +216,6 @@ const projectDetails: ProjectDetail[] = [
         span: "tall",
       },
       {
-        src: "/images/Four Seasons Spa Renderings/N 13D_Spa Treatment_Cam 02_2022-08-24_1064.jpg",
-        alt: "Four Seasons Spa — Treatment Detail",
-        span: "normal",
-      },
-      {
         src: "/images/Four Seasons Spa Renderings/N 13E_Spa Relaxation_3506_Option-04_2022-08-24_743.jpg",
         alt: "Four Seasons Spa — Relaxation Lounge",
         span: "wide",
@@ -227,21 +226,21 @@ const projectDetails: ProjectDetail[] = [
     id: "punta-cana",
     heroImage:
       "/images/Punta Cana Renderings/N 01A_3Bay Bedroom_3514.01_2024-08-02_743.jpg",
-    subtitle: "Caribbean Resort",
-    location: "Punta Cana, DR",
-    year: "2026",
+    subtitle: "Hotel/ Resort",
+    location: "Punta Cana, Dominican Republic",
+    year: "Expected 2028",
     type: "Hospitality — Resort",
     scope: "Guest Room & Suite Design",
     stats: [
-      { label: "Location", value: "Punta Cana, DR" },
-      { label: "Type", value: "Resort" },
-      { label: "Year", value: "2026" },
-      { label: "Scope", value: "Guest Rooms & Suites" },
+      { label: "Role", value: "Drawings, FF&E, and Finishes" },
+      { label: "Scope", value: "Led finish palette development, FF&E selections, custom furniture design, drawings, specifications, and visual direction for renderings, coordinating with the visualization team to communicate the guestroom and suite design intent." },
     ],
-    overviewText:
-      "A Caribbean resort grounded in understated luxury. Bedrooms and suites are conceived as private retreats — open, airy volumes where natural materials, layered textiles, and panoramic views dissolve the boundary between interior and landscape.",
-    narrativeText:
-      "Tropical design too often defaults to pastiche. Here, restraint is the luxury. A muted palette of bleached wood, linen, and local stone lets the ocean and sky become the primary decoration. Living and sleeping zones flow without hard division, encouraging the slow, unstructured rhythm that defines true resort life.",
+    mediaType: "Rendering",
+    tagline: "Quietly Carribean",
+    overviewText: [
+      "Currently in development, this all-inclusive resort in Punta Cana is conceived as a calm coastal escape shaped by light, texture, and landscape. Warm wood, woven textiles, stone, softened neutrals, and green glazed tile create an atmosphere that feels layered, tactile, and quietly connected to its setting.",
+      "Guest rooms and suites are planned with open transitions between sleeping, lounging, and bathing, allowing the interiors to feel fluid and unforced. Rathter than leaning on overt tropical motifs, the design communicates its Carribean character through craft, proportion, and atmosphere.",
+    ],
     galleryImages: [
       {
         src: "/images/Punta Cana Renderings/N 01B Typical King Bedroom_3514.01_2024-08-01_310.jpg",
@@ -275,15 +274,14 @@ const projectDetails: ProjectDetail[] = [
     type: "Multifamily Residential",
     scope: "Interior Design — Amenities",
     stats: [
-      { label: "Location", value: "Atlanta, GA" },
-      { label: "Type", value: "Multifamily" },
-      { label: "Year", value: "2023" },
+      { label: "Role", value: "Multifamily" },
       { label: "Scope", value: "Interior Design" },
     ],
-    overviewText:
+    mediaType: "Photography",
+    tagline: "A Neighborly Spirit in Downtown Decatur",
+    overviewText: [
       "Modera Decatur captures the walkable, community-driven spirit of downtown Decatur. Warm, layered amenity spaces — from the lobby to co-working lounges and gathering areas — are designed to foster connection while preserving individual comfort. Rich wood tones, tactile fabrics, and curated art give every corner a residential soul.",
-    narrativeText:
-      "Decatur's character is neighborly, literate, and unpretentious. The interiors reflect that identity through honest materials and an approachable scale. Rather than grand gestures, the design accumulates small pleasures — a reading nook with perfect light, a lobby corner that feels like a living room, communal tables that invite conversation.",
+    ],
     galleryImages: [
       {
         src: "/images/Modera Decatur Photos/PHOTO 2.jpg",
@@ -321,21 +319,22 @@ const projectDetails: ProjectDetail[] = [
     id: "howarth-aesthetic",
     heroImage:
       "/images/Howarth Aesthetic Renderings/N 04A_Reception_3524_2024-09-23_197.jpg",
-    subtitle: "Medical Spa",
-    location: "Atlanta, GA",
-    year: "2024",
-    type: "Medical Spa",
+    subtitle: "Aesthethic Clinic",
+    location: "Paradise Valley, Arizona",
+    year: "2025",
+    type: "Aesthetic Clinic",
     scope: "Interior Design",
     stats: [
-      { label: "Location", value: "Atlanta, GA" },
-      { label: "Type", value: "Medical Spa" },
-      { label: "Year", value: "2024" },
-      { label: "Scope", value: "Interior Design" },
+      { label: "Role", value: "FF&E and Finishes" },
+      { label: "Scope", value: "Led finish palette development, FF&E selections, specification writing, material documentation, and vendor coordination to support the project's design direction and technical execution" },
     ],
-    overviewText:
-      "Howarth Aesthetic reimagines medical spa design as a hospitality experience. Reception and corridor spaces trade clinical sterility for warm sophistication — sculpted millwork, ambient lighting, and a restrained palette of blush, stone, and brushed metal that puts clients at ease from the moment of arrival.",
-    narrativeText:
-      "Medical environments carry inherent anxiety. The design counters this through every sensory channel: soft curves instead of hard edges, warm light instead of fluorescent glare, materials that read as boutique hotel rather than clinic. The result is a space where clinical precision is felt but never seen.",
+    mediaType: "Rendering",
+    tagline: "Precision with Warmth",
+    overviewText: [
+      "Designed for a Scottsdale plastic surgery and aesthetics practice, Howarth reframes the clinical environment through warmth, privacy, and hospitality-level detail. The interiors replace institutional cues with sculpted millwork, arched thresholds, ambient lighting, pale stone, soft blush tones, and brushed metal accents.",
+      "The arrival sequence is calm and composed, creating a sense of ease before consultation or treatment. Curved forms soften circulation, while layered materials bring depth without visual noise. The result is a medical environment that feels precise but not sterile, elevated but not theatrical.",
+      "Rather than masking the function of the practice, the design supports it through clarity, comfort, and discretion."
+    ],
     galleryImages: [
       {
         src: "/images/Howarth Aesthetic Renderings/N 03A_Corridor_3524_2024-09-13_1064.jpg",
@@ -359,15 +358,14 @@ const projectDetails: ProjectDetail[] = [
     type: "Mixed-Use / Cultural & Community Hub",
     scope: "Architecture & Evidence-Based Design",
     stats: [
-      { label: "Location", value: "Sikka Regency, East Nusa Tenggara, INA" },
-      { label: "Type", value: "Cultural & Community Hub" },
-      { label: "Year", value: "2024 (Capstone)" },
+      { label: "Role", value: "Cultural & Community Hub" },
       { label: "Scope", value: "Architecture & Evidence-Based Design" },
     ],
-    overviewText:
+    mediaType: "Rendering",
+    tagline: "Interweaving Heritage and Community in East Nusa Tenggara",
+    overviewText: [
       "Kaum Cultural Community Hub serves as a transformative anchor in East Nusa Tenggara, bridging the gap between local heritage and global curiosity. The design rejects the typical \"tourist-centric\" model, instead prioritizing a vernacular-inspired framework that empowers the Sikka community. Through a semi-open plan and a material palette drawn directly from the earth and handwoven textiles, the facility provides a dignified stage for cultural preservation and economic mobility.",
-    narrativeText:
-      "The architecture functions as a physical manifestation of the \"Interweave\" concept—where the built environment acts as the knots and the people act as the strands. By utilizing a semi-open plan, the design dissolves the barriers between the local community and visitors, fostering organic interactions rather than curated performances. The aesthetic is a study in cultural resonance. Neutral tones and textures are derived from traditional handwoven fabrics, ensuring the structure feels like an extension of the landscape rather than an imposition upon it. Spatial flow is guided by the Dala Mawarni pattern; triangular geometries are strategically integrated into the wayfinding and functional zones. This ensures the dynamic, large-scale spaces remain intuitive and intimate. The result is a facility that doesn't just showcase culture—it provides the infrastructure for that culture to evolve, breathe, and sustain the people who created it.",
+    ],
     galleryImages: [
       {
         src: "/images/SCAD undergrad work/KAUM Cultural Community Hub/KAUM Cultural Community Hub - Handweaving Elevation.jpg",
@@ -411,15 +409,14 @@ const projectDetails: ProjectDetail[] = [
     type: "Luxury Hospitality — Hotel & Presidential Suites",
     scope: "Interior Design — Guest Rooms & Public Spaces",
     stats: [
-      { label: "Location", value: "Alys Beach, FL" },
-      { label: "Type", value: "Luxury Hospitality" },
-      { label: "Year", value: "2024 (SCAD Capstone)" },
+      { label: "Role", value: "Luxury Hospitality" },
       { label: "Scope", value: "Hotel & Presidential Suites" },
     ],
-    overviewText:
+    mediaType: "Rendering",
+    tagline: "A Potpourri of Growth on Alys Beach",
+    overviewText: [
       "Beach Resort project is conceived around the concept 'Potpourri of Growth' — a fluid, calming environment grounded in natural beauty, sustainability, and community wellness. Curvilinear forms, textured natural materials, and a semi-open layout dissolve boundaries between interior and landscape, drawing from Attention Restoration and Place Identity design theory to forge a deep personal connection to space.",
-    narrativeText:
-      "Continuous circulation, derived from a curvilinear parti diagram, flows through every public zone and into the Presidential Suites — harmonious, balanced spaces where woven palm textures, shell-inspired finishes, and neutral tones create an atmosphere of unhurried luxury. The design resists decoration for its own sake; instead, each material and spatial gesture serves the guest's physical and psychological restoration. Techniques: AutoCAD, SketchUp, Corona Renderer. Role: Project Manager (Collaborative).",
+    ],
     galleryImages: [
       {
         src: "/images/SCAD undergrad work/Six Senses/Six Senses 2.jpg",
@@ -536,12 +533,19 @@ export default async function ProjectPage({
                 Overview
               </p>
               <h2 className="font-cormorant text-3xl md:text-4xl font-light text-[#1a1a1a] mb-8 leading-snug">
-                {projectItem.title}
+                {detail.tagline}
               </h2>
               <div className="w-10 h-[1px] bg-[#b8955a] opacity-50 mb-8" />
-              <p className="font-cormorant text-xl md:text-2xl text-[#4a4a4a] leading-relaxed font-light">
-                {detail.overviewText}
-              </p>
+              <div className="space-y-5">
+                {detail.overviewText.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="font-cormorant text-base md:text-lg text-[#4a4a4a] leading-relaxed font-light"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
               <p className="mt-6 font-cormorant text-sm tracking-[0.15em] text-[#9a9590] italic">
                 {detail.id === "kaum-cultural-hub" || detail.id === "beach-resort"
                   ? "Undergrad Work"
@@ -551,7 +555,7 @@ export default async function ProjectPage({
 
             {/* Right — key stats grid */}
             <div className="md:pt-14">
-              <div className="grid grid-cols-2 gap-px bg-[#e8e4de]">
+              <div className="grid grid-cols-1 gap-px bg-[#e8e4de]">
                 {detail.stats.map((stat) => (
                   <div
                     key={stat.label}
@@ -583,24 +587,19 @@ export default async function ProjectPage({
         {/* ── Gallery ──────────────────────────────────────────────── */}
         <section className="px-4 md:px-8 pb-24 md:pb-32 max-w-7xl mx-auto">
           <p className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#b8955a] mb-8 px-4">
-            Photography
+            {detail.mediaType}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 md:auto-rows-[360px]">
             {detail.galleryImages.map((image, index) => {
               const isWide = image.span === "wide";
-              const isTall = image.span === "tall";
 
               return (
                 <div
                   key={index}
                   className={[
-                    "relative overflow-hidden bg-[#f0ece6]",
+                    "relative overflow-hidden bg-[#f0ece6] aspect-[4/3] md:aspect-auto",
                     isWide ? "md:col-span-2" : "",
-                    isTall ? "md:row-span-2" : "",
-                    isWide ? "aspect-[16/9] md:aspect-[16/7]" : "",
-                    isTall ? "aspect-[3/4] md:aspect-auto md:min-h-[540px]" : "",
-                    !isWide && !isTall ? "aspect-[4/3]" : "",
                   ]
                     .filter(Boolean)
                     .join(" ")}
@@ -615,19 +614,6 @@ export default async function ProjectPage({
                 </div>
               );
             })}
-          </div>
-        </section>
-
-        {/* ── Design Narrative ─────────────────────────────────────── */}
-        <section className="py-24 md:py-32 px-8 md:px-16 bg-[#f5f2ee]">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#b8955a] mb-8">
-              Design Narrative
-            </p>
-            <div className="w-8 h-[1px] bg-[#b8955a] opacity-50 mx-auto mb-10" />
-            <p className="font-cormorant text-2xl md:text-3xl font-light text-[#1a1a1a] leading-relaxed">
-              {detail.narrativeText}
-            </p>
           </div>
         </section>
 
