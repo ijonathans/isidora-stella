@@ -837,8 +837,9 @@
   }
 
   .aboutPortraitFrame {
-    height: 320px;
+    height: auto;
     min-height: 0;
+    aspect-ratio: 3535 / 5302;
   }
 
   .aboutCredential {
