@@ -514,7 +514,7 @@ export default async function ProjectPage({
             <p className="font-cormorant text-xs md:text-sm tracking-[0.3em] uppercase text-white/70 mb-3">
               {detail.subtitle}
             </p>
-            <h1 className="font-cormorant text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4 drop-shadow-sm">
+            <h1 className="font-cormorant text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4 drop-shadow-sm">
               {projectItem.title}
             </h1>
             <p className="font-cormorant text-base md:text-lg tracking-[0.15em] uppercase text-white/60">
@@ -525,7 +525,7 @@ export default async function ProjectPage({
 
         {/* ── Project Overview ─────────────────────────────────────── */}
         <section className="py-24 md:py-32 px-8 md:px-16 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 items-start">
 
             {/* Left — editorial text */}
             <div>
@@ -658,7 +658,7 @@ export default async function ProjectPage({
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/70" />
         <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-14 md:pb-20">
           <div className="w-12 h-[1px] bg-[#b8955a] opacity-80 mb-6" />
-          <h1 className="font-cormorant text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4">
+          <h1 className="font-cormorant text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4">
             {projectItem.title}
           </h1>
           <p className="font-cormorant text-base md:text-lg tracking-[0.15em] uppercase text-white/60">
@@ -669,7 +669,7 @@ export default async function ProjectPage({
 
       {/* Generic Content */}
       <section className="py-24 md:py-32 px-8 md:px-16 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 items-start">
           <div>
             <p className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#b8955a] mb-6">
               Overview
@@ -678,7 +678,7 @@ export default async function ProjectPage({
               {projectItem.title}
             </h2>
             <div className="w-10 h-[1px] bg-[#b8955a] opacity-50 mb-8" />
-            <p className="font-cormorant text-xl md:text-2xl text-[#4a4a4a] leading-relaxed font-light">
+            <p className="font-cormorant text-lg md:text-2xl text-[#4a4a4a] leading-relaxed font-light">
               A visionary approach to {projectItem.title}, blending timeless elegance with modern
               sophistication. This project emphasizes meticulous attention to detail, premium
               materials, and a deep understanding of spatial harmony.

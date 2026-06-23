@@ -193,8 +193,8 @@ const ScrollExpandMedia = ({
   }, []);
 
   const mediaWidth = 400 + scrollProgress * (isMobileState ? 650 : 1250);
-  const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
-  const textTranslateX = scrollProgress * (isMobileState ? 180 : 150);
+  const mediaHeight = (isMobileState ? 200 : 400) + scrollProgress * (isMobileState ? 400 : 400);
+  const textTranslateX = scrollProgress * (isMobileState ? 45 : 150);
 
   const firstWord = title ? title.split(' ')[0] + ' ' + title.split(' ')[1] : '';
   const restOfTitle = title ? title.split(' ').slice(2).join(' ') : '';
@@ -315,13 +315,13 @@ const ScrollExpandMedia = ({
                   }`}
               >
                 <motion.h2
-                  className='text-5xl md:text-6xl lg:text-6xl font-bold text-white transition-none'
+                  className='text-2xl sm:text-4xl md:text-6xl lg:text-6xl font-bold text-white transition-none whitespace-nowrap'
                   style={{ transform: `translateX(-${textTranslateX}vw)` }}
                 >
                   {firstWord}
                 </motion.h2>
                 <motion.h2
-                  className='text-5xl md:text-6xl lg:text-6xl font-bold text-center text-white transition-none'
+                  className='text-2xl sm:text-4xl md:text-6xl lg:text-6xl font-bold text-center text-white transition-none whitespace-nowrap'
                   style={{ transform: `translateX(${textTranslateX}vw)` }}
                 >
                   {restOfTitle}
@@ -331,7 +331,7 @@ const ScrollExpandMedia = ({
 
             {/* Content revealed after expansion */}
             <motion.section
-              className='flex flex-col w-full px-8 py-10 md:px-16 lg:py-20'
+              className='flex flex-col w-full px-4 py-10 sm:px-8 md:px-16 lg:py-20'
               initial={{ opacity: 0 }}
               animate={{ opacity: showContent ? 1 : 0 }}
               transition={{ duration: 0.7 }}
