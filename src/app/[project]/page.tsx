@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { projectEntries } from "@/components/showcase/projectData";
+import ProjectGallery from "@/components/showcase/ProjectGallery";
 
 // ─── Project Detail Data ─────────────────────────────────────────────────────
 
@@ -585,37 +586,7 @@ export default async function ProjectPage({
         </section>
 
         {/* ── Gallery ──────────────────────────────────────────────── */}
-        <section className="px-4 md:px-8 pb-24 md:pb-32 max-w-7xl mx-auto">
-          <p className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#b8955a] mb-8 px-4">
-            {detail.mediaType}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 md:auto-rows-[360px]">
-            {detail.galleryImages.map((image, index) => {
-              const isWide = image.span === "wide";
-
-              return (
-                <div
-                  key={index}
-                  className={[
-                    "relative overflow-hidden bg-[#f0ece6] aspect-[4/3] md:aspect-auto",
-                    isWide ? "md:col-span-2" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        <ProjectGallery images={detail.galleryImages} mediaType={detail.mediaType} />
 
         {/* ── Back to Portfolio ────────────────────────────────────── */}
         <section className="py-20 md:py-28 flex flex-col items-center gap-6 bg-[#FAF9F6]">
