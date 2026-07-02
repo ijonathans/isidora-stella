@@ -114,7 +114,7 @@ export const ExpandingCards = React.forwardRef<
           <article
             className="absolute inset-0 flex flex-col justify-end gap-2 p-4"
           >
-            <h3 className="hidden origin-left rotate-90 text-base md:text-lg font-light uppercase tracking-[0.2em] text-white/90 opacity-100 transition-all duration-300 ease-out md:block group-data-[active=true]:opacity-0 font-cormorant whitespace-nowrap">
+            <h3 className="hidden absolute bottom-1 left-10 origin-bottom-left -rotate-90 translate-y-[-100%] text-base md:text-lg font-light uppercase tracking-[0.2em] text-white/90 opacity-100 transition-all duration-300 ease-out md:block group-data-[active=true]:opacity-0 font-cormorant whitespace-nowrap">
               {item.title}
             </h3>
 

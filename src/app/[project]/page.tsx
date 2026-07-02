@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { projectEntries } from "@/components/showcase/projectData";
 import ProjectGallery from "@/components/showcase/ProjectGallery";
@@ -487,13 +486,13 @@ export default async function ProjectPage({
 
         {/* ── Back Navigation ─────────────────────────────────────── */}
         <nav className="fixed top-0 left-0 w-full z-20 px-6 py-6 pointer-events-none">
-          <Link
+          <a
             href="/#projects"
             className="inline-flex items-center gap-2 pointer-events-auto hover:opacity-70 transition-opacity duration-300 font-cormorant tracking-widest uppercase text-sm bg-white/60 backdrop-blur-md px-5 py-2.5 rounded-full shadow-sm text-[#1a1a1a] border border-white/40"
           >
             <ArrowLeft size={14} />
             Portfolio
-          </Link>
+          </a>
         </nav>
 
         {/* ── Hero ────────────────────────────────────────────────── */}
@@ -591,13 +590,13 @@ export default async function ProjectPage({
         {/* ── Back to Portfolio ────────────────────────────────────── */}
         <section className="py-20 md:py-28 flex flex-col items-center gap-6 bg-[#FAF9F6]">
           <div className="w-[1px] h-16 bg-[#b8955a] opacity-40" />
-          <Link
+          <a
             href="/#projects"
             className="font-cormorant text-xs tracking-[0.35em] uppercase text-[#1a1a1a] hover:text-[#b8955a] transition-colors duration-300 inline-flex items-center gap-3"
           >
             <ArrowLeft size={14} />
             Back to Portfolio
-          </Link>
+          </a>
         </section>
       </main>
     );
@@ -609,13 +608,13 @@ export default async function ProjectPage({
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-20 px-6 py-6 pointer-events-none">
-        <Link
+        <a
           href="/#projects"
           className="inline-flex items-center gap-2 pointer-events-auto hover:opacity-70 transition-opacity duration-300 font-cormorant tracking-widest uppercase text-sm bg-white/60 backdrop-blur-md px-5 py-2.5 rounded-full shadow-sm text-[#1a1a1a] border border-white/40"
         >
           <ArrowLeft size={14} />
           Portfolio
-        </Link>
+        </a>
       </nav>
 
       {/* Hero */}
@@ -672,13 +671,13 @@ export default async function ProjectPage({
       {/* Back to Portfolio */}
       <section className="py-20 md:py-28 flex flex-col items-center gap-6 bg-[#FAF9F6]">
         <div className="w-[1px] h-16 bg-[#b8955a] opacity-40" />
-        <Link
+        <a
           href="/#projects"
           className="font-cormorant text-xs tracking-[0.35em] uppercase text-[#1a1a1a] hover:text-[#b8955a] transition-colors duration-300 inline-flex items-center gap-3"
         >
           <ArrowLeft size={14} />
           Back to Portfolio
-        </Link>
+        </a>
       </section>
     </main>
   );
