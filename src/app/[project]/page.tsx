@@ -77,6 +77,11 @@ const projectDetails: ProjectDetail[] = [
         alt: "Modera Parkside — Corridor Detail",
         span: "wide",
       },
+      {
+        src: "/images/Modera Parkside Photos/Modera_Parkside_01.jpeg",
+        alt: "Modera Parkside — Resident Lounge",
+        span: "wide",
+      },
     ],
   },
   {
@@ -124,11 +129,7 @@ const projectDetails: ProjectDetail[] = [
         alt: "Modera McGavock — Corridor",
         span: "normal",
       },
-      {
-        src: "/images/Modera McGavock Nashville Photos/Modera_McGavock_01.jpeg",
-        alt: "Modera McGavock — Resident Lounge",
-        span: "wide",
-      },
+
     ],
   },
   {
@@ -349,6 +350,102 @@ const projectDetails: ProjectDetail[] = [
     ],
   },
   {
+    id: "doubletree-fandb",
+    heroImage:
+      "/images/DoubleTree by Hilton F&B Renderings/N 07A_Three Meal_3523_2025-06-19_197.jpg",
+    subtitle: "Food & Beverage",
+    location: "Pakistan",
+    year: "2025",
+    type: "Hospitality — Restaurant & Dining",
+    scope: "Interior Design — F&B",
+    stats: [
+      { label: "Role", value: "FF&E and Finishes" },
+      { label: "Scope", value: "Led finish palette development, FF&E selections, and visual direction across the property's dining venues, coordinating with the visualization team to communicate design intent." },
+    ],
+    mediaType: "Rendering",
+    tagline: "Layered Dining, One Continuous Experience",
+    overviewText: [
+      "This DoubleTree by Hilton F&B program spans three distinct dining concepts — a specialty restaurant, a Lebanese restaurant, and an all-day three-meal venue — unified by a shared material language while each retains its own identity.",
+      "Warm woods, layered lighting, and tailored seating create a sense of occasion in the specialty and Lebanese venues, while the three-meal restaurant leans into a more relaxed, flexible atmosphere suited to daily use.",
+      "Across all three spaces, the design balances hospitality polish with the practical rhythms of a full-service hotel dining program."
+    ],
+    galleryImages: [
+      {
+        src: "/images/DoubleTree by Hilton F&B Renderings/N 07A_Three Meal_3523_2025-06-19_197.jpg",
+        alt: "DoubleTree F&B — Three-Meal Restaurant",
+        span: "wide",
+      },
+      {
+        src: "/images/DoubleTree by Hilton F&B Renderings/N 06A_Specialty Restaurant_3523_2025-06-26_310.jpg",
+        alt: "DoubleTree F&B — Specialty Restaurant",
+        span: "normal",
+      },
+      {
+        src: "/images/DoubleTree by Hilton F&B Renderings/N 06B_Lebanese Restaurant_3523_2025-06-19_743 1.jpg",
+        alt: "DoubleTree F&B — Lebanese Restaurant",
+        span: "tall",
+      },
+    ],
+  },
+  {
+    id: "aqualina",
+    heroImage:
+      "/images/Aqualina Renderings/N 04A_Lobby_30176_Option02_2024-01-24_1064.jpg",
+    subtitle: "Spa & Wellness",
+    location: "Nassau, Bahamas",
+    year: "2024",
+    type: "Hospitality — Spa & Wellness Amenities",
+    scope: "Interior Design",
+    stats: [
+      { label: "Role", value: "FF&E and Finishes" },
+      { label: "Scope", value: "Led finish palette development, FF&E selections, and visual direction across the wellness amenity suite, coordinating with the visualization team to communicate design intent." },
+    ],
+    mediaType: "Rendering",
+    tagline: "A Wellness Amenity Suite, Grounded in Calm",
+    overviewText: [
+      "Aqualina brings together a full wellness amenity program — lobby, spa entry, massage and beauty rooms, plunge pool, fitness area, and cinema — into one cohesive retreat within the property.",
+      "Soft materials, filtered light, and quiet material transitions carry guests from arrival through treatment spaces, while the fitness and cinema areas offer a more energized counterpoint within the same material palette.",
+      "The result is an amenity experience that feels continuous and unhurried, prioritizing calm without sacrificing the variety guests expect from a full wellness program."
+    ],
+    galleryImages: [
+      {
+        src: "/images/Aqualina Renderings/N 04A_Lobby_30176_Option02_2024-01-24_1064.jpg",
+        alt: "Aqualina — Lobby",
+        span: "wide",
+      },
+      {
+        src: "/images/Aqualina Renderings/N 13A_Spa Entry_30176_Opt-01_2024-01-18_1064.jpg",
+        alt: "Aqualina — Spa Entry",
+        span: "normal",
+      },
+      {
+        src: "/images/Aqualina Renderings/N 13B_Massage_30176_2023-12-14_1282.jpg",
+        alt: "Aqualina — Massage",
+        span: "tall",
+      },
+      {
+        src: "/images/Aqualina Renderings/N 13C_Beauty_30176_2024-01-12_197.jpg",
+        alt: "Aqualina — Beauty",
+        span: "normal",
+      },
+      {
+        src: "/images/Aqualina Renderings/N 12B_Plunge Pool_30176_2024-01-11_310.jpg",
+        alt: "Aqualina — Plunge Pool",
+        span: "tall",
+      },
+      {
+        src: "/images/Aqualina Renderings/N 11A_Gym-Fitness Area_30176_2024-01-24_772.jpg",
+        alt: "Aqualina — Fitness Area",
+        span: "wide",
+      },
+      {
+        src: "/images/Aqualina Renderings/N 18A_Cinema_30176_2024-01-18_310.jpg",
+        alt: "Aqualina — Cinema",
+        span: "wide",
+      },
+    ],
+  },
+  {
     id: "kaum-cultural-hub",
     heroImage:
       "/images/SCAD undergrad work/KAUM Cultural Community Hub/KAUM Cultural Community Hub - Jendela Maumere Gallery.jpg",
@@ -402,7 +499,7 @@ const projectDetails: ProjectDetail[] = [
   {
     id: "beach-resort",
     heroImage:
-      "/images/SCAD undergrad work/Six Senses/Six Senses 1.jpg",
+      "/images/SCAD undergrad work/Six Senses/Six Senses 1.png",
     subtitle: "Luxury Hospitality — Presidential Suites",
     location: "Alys Beach, FL",
     year: "2024",

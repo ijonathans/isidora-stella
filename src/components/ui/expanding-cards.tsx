@@ -33,7 +33,10 @@ export const ExpandingCards = React.forwardRef<
   const [activeIndex, setActiveIndex] = React.useState<number | null>(
     defaultActiveIndex,
   );
-  
+  const [confirmedIndex, setConfirmedIndex] = React.useState<number | null>(
+    null,
+  );
+
   const router = useRouter();
 
   const [isDesktop, setIsDesktop] = React.useState(false);
@@ -63,11 +66,25 @@ export const ExpandingCards = React.forwardRef<
     }
   }, [activeIndex, items.length, isDesktop]);
 
-  const handleInteraction = (index: number, href?: string) => {
-    if (activeIndex === index && href && href !== "#") {
+  const handleHover = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  const handleClick = (index: number, href?: string) => {
+    if (isDesktop) {
+      if (activeIndex === index && href && href !== "#") {
+        router.push(href);
+      } else {
+        setActiveIndex(index);
+      }
+      return;
+    }
+
+    if (confirmedIndex === index && href && href !== "#") {
       router.push(href);
     } else {
       setActiveIndex(index);
+      setConfirmedIndex(index);
     }
   };
 
@@ -76,8 +93,10 @@ export const ExpandingCards = React.forwardRef<
       className={cn(
         "w-full max-w-[95%] xl:max-w-[90rem] gap-2 mx-auto",
         "grid",
-        "h-[480px] sm:h-[600px] md:h-[650px]",
-        "transition-[grid-template-columns,grid-template-rows] duration-500 ease-out",
+        activeIndex !== null
+          ? "h-[560px] sm:h-[680px] md:h-[650px]"
+          : "h-[480px] sm:h-[600px] md:h-[650px]",
+        "transition-[grid-template-columns,grid-template-rows,height] duration-500 ease-out",
         className,
       )}
       style={{
@@ -98,9 +117,9 @@ export const ExpandingCards = React.forwardRef<
             "md:min-w-[80px]",
             "min-h-0 min-w-0"
           )}
-          onMouseEnter={() => handleInteraction(index)}
-          onFocus={() => handleInteraction(index)}
-          onClick={() => handleInteraction(index, item.linkHref)}
+          onMouseEnter={() => handleHover(index)}
+          onFocus={() => handleHover(index)}
+          onClick={() => handleClick(index, item.linkHref)}
           tabIndex={0}
           data-active={activeIndex === index}
         >
@@ -125,6 +144,10 @@ export const ExpandingCards = React.forwardRef<
             <p className="w-full max-w-md text-base md:text-lg text-white/80 opacity-0 transition-all duration-300 delay-225 ease-out group-data-[active=true]:opacity-100 font-cormorant tracking-wider">
               {item.description}
             </p>
+
+            <span className="inline-flex w-fit items-center gap-2 text-xs md:text-sm uppercase tracking-[0.2em] text-white/90 border-b border-white/40 pb-1 opacity-0 transition-all duration-300 delay-300 ease-out group-data-[active=true]:opacity-100 font-cormorant">
+              View Project →
+            </span>
           </article>
         </li>
       ))}

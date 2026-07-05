@@ -10,16 +10,30 @@ export const projectEntries: ProjectEntry[] = [
   {
     id: "punta-cana",
     title: "All-Inclusive Resort",
-    description: "Resort (2026)",
+    description: "Resort (2026) — Punta Cana, Dominican Republic",
     imgSrc: "/images/Punta Cana Renderings/N 01A_3Bay Bedroom_3514.01_2024-08-02_743.jpg",
     linkHref: "/punta-cana",
   },
   {
     id: "howarth-aesthetic",
     title: "Howarth",
-    description: "Aesthetic Clinic (2025)",
+    description: "Aesthetic Clinic (2025) — Paradise Valley, AZ",
     imgSrc: "/images/Howarth Aesthetic Renderings/N 04A_Reception_3524_2024-09-23_197.jpg",
     linkHref: "/howarth-aesthetic",
+  },
+  {
+    id: "doubletree-fandb",
+    title: "DoubleTree by Hilton",
+    description: "F&B / Restaurant (2025) — Pakistan",
+    imgSrc: "/images/DoubleTree by Hilton F&B Renderings/N 07A_Three Meal_3523_2025-06-19_197.jpg",
+    linkHref: "/doubletree-fandb",
+  },
+  {
+    id: "aqualina",
+    title: "Aqualina",
+    description: "Spa & Wellness (2024) — Nassau, Bahamas",
+    imgSrc: "/images/Aqualina Renderings/N 04A_Lobby_30176_Option02_2024-01-24_1064.jpg",
+    linkHref: "/aqualina",
   },
   {
     id: "four-seasons-spa",
@@ -39,7 +53,7 @@ export const projectEntries: ProjectEntry[] = [
     id: "modera-mcgavock",
     title: "Modera McGavock",
     description: "Multifamily (2025) — Nashville, TN",
-    imgSrc: "/images/Modera McGavock Nashville Photos/Modera_McGavock_01.jpeg",
+    imgSrc: "/images/Modera McGavock Nashville Photos/0030-davidmadisonphotography-com-modera-mcgavock-nashville-tenneessee-jpg.avif",
     linkHref: "/modera-mcgavock",
   },
   {
