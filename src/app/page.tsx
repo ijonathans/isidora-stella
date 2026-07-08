@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import HeroSection from "@/components/showcase/HeroSection";
 import ScrollProjectsSection from "@/components/showcase/ScrollProjectsSection";
 import AboutSection from "@/components/showcase/AboutSection";
+import ProcessSection from "@/components/showcase/ProcessSection";
 import PressSection from "@/components/showcase/PressSection";
 import ContactFooter from "@/components/showcase/ContactFooter";
 import SideNav from "@/components/showcase/SideNav";
@@ -34,6 +35,7 @@ export default function IsidoraStellaPage() {
       <SideNav />
       <HeroSection />
       <AboutSection />
+      <ProcessSection />
       <ScrollProjectsSection />
       <PressSection />
       <ContactFooter />
