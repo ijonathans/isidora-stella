@@ -226,109 +226,99 @@
 }
 
 /* ----------------------------------------------------------------
-   3. Side Navigation
+   3. Top Navigation
 ---------------------------------------------------------------- */
-.sideNav {
+.topNav {
   position: fixed;
-  right: clamp(1.25rem, 3vw, 2.5rem);
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  mix-blend-mode: normal;
+  background: transparent;
+  transition: background-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
 }
 
-.sideNavList {
+.topNav.isScrolled {
+  background: var(--color-cream);
+  box-shadow: 0 1px 0 rgba(26, 25, 23, 0.06);
+}
+
+.topNavInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-6) var(--gutter);
+  transition: padding 0.4s var(--ease-out-expo);
+}
+
+.topNav.isScrolled .topNavInner {
+  padding-top: var(--sp-4);
+  padding-bottom: var(--sp-4);
+}
+
+.topNavList {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
   list-style: none;
   padding: 0;
   margin: 0;
-  align-items: flex-end;
 }
 
-.sideNavLink {
-  display: flex;
-  align-items: center;
+.topNavLink {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  flex-direction: row;
+  color: rgba(245, 242, 238, 0.85);
   position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s var(--ease-in-out);
 }
 
-.sideNavLabel {
-  position: absolute;
-  right: calc(100% + 1.5rem);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.topNav.isScrolled .topNavLink {
   color: var(--color-charcoal);
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: opacity 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo), color 0.3s;
-  white-space: nowrap;
-  pointer-events: none;
 }
 
-.sideNavDot {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(26, 25, 23, 0.25);
-  border: 1px solid rgba(26, 25, 23, 0.2);
-  transition: background 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo), border-color 0.3s;
-  flex-shrink: 0;
+.topNavLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: right 0.3s var(--ease-out-expo);
 }
 
-/* Active states */
-.sideNavLink.isActive .sideNavLabel {
+.topNavLink:hover,
+.topNavLink.isActive {
   color: var(--color-gold);
 }
 
-.sideNavLink.isActive .sideNavDot {
-  background: var(--color-gold);
-  border-color: var(--color-gold);
-  transform: scale(1.4);
+.topNavLink:hover::after,
+.topNavLink.isActive::after {
+  right: 0;
 }
 
-/* Hover — expand label */
-.sideNavLink:hover .sideNavLabel,
-.sideNavLink.isActive .sideNavLabel {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.sideNavLink:hover .sideNavDot {
-  background: var(--color-gold);
-  border-color: var(--color-gold);
-}
-
-/* When over dark sections (hero, exploded, contact) — invert dots */
-.sideNav.isDark .sideNavDot {
-  background: rgba(245, 242, 238, 0.4);
-  border-color: rgba(245, 242, 238, 0.3);
-}
-
-.sideNav.isDark .sideNavLink.isActive .sideNavDot {
-  background: var(--color-gold);
-  border-color: var(--color-gold);
-}
-
-.sideNav.isDark .sideNavLink.isActive .sideNavLabel {
-  color: var(--color-gold);
-}
-
-.sideNav.isDark .sideNavLabel {
-  color: rgba(245, 242, 238, 0.8);
-}
-
-/* Mobile: hide side nav */
+/* Mobile: condense nav */
 @media (max-width: 768px) {
-  .sideNav {
-    display: none;
+  .topNavInner {
+    padding: var(--sp-4) var(--sp-4);
+  }
+
+  .topNavList {
+    gap: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .topNavLink {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
   }
 }
 
@@ -890,7 +880,11 @@
 
 .contactForm {}
 
-.contactInfo {}
+.contactInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--sp-6);
+}
 
 .contactField {
   margin-bottom: var(--sp-6);
@@ -899,7 +893,7 @@
 .contactFieldLabel {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -924,7 +918,7 @@
   border: none;
   outline: none;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 300;
   color: var(--color-cream);
   padding: var(--sp-4) 0;
@@ -941,7 +935,7 @@
   border: none;
   outline: none;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 300;
   color: var(--color-cream);
   padding: var(--sp-4) 0;
@@ -964,7 +958,7 @@
   padding: var(--sp-4) var(--sp-6) var(--sp-4) 0;
   color: var(--color-gold);
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -993,7 +987,7 @@
 
 .contactFormMessage {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 300;
   margin-top: var(--sp-4);
   min-height: 1.2em;
@@ -1022,7 +1016,7 @@
 
 .contactAddressLabel {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1032,32 +1026,11 @@
 
 .contactAddressBody {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 300;
   line-height: 1.9;
   color: rgba(245, 242, 238, 0.65);
   font-style: normal;
-}
-
-.contactLinks {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
-}
-
-.contactSocialLink {
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(245, 242, 238, 0.35);
-  transition: color 0.3s var(--ease-in-out);
-  width: fit-content;
-}
-
-.contactSocialLink:hover {
-  color: var(--color-gold);
 }
 
 /* Footer bar */
@@ -1072,7 +1045,7 @@
 
 .contactWordmark {
   font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.15em;
   color: rgba(245, 242, 238, 0.3);
@@ -1080,7 +1053,7 @@
 
 .contactCopyright {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 300;
   letter-spacing: 0.05em;
   color: rgba(245, 242, 238, 0.2);
@@ -1094,6 +1067,10 @@
 
   .contactRight {
     padding-top: 0;
+  }
+
+  .contactInfo {
+    grid-template-columns: 1fr;
   }
 
   .contactFooterBar {

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { projectEntries } from "@/components/showcase/projectData";
 import ProjectGallery from "@/components/showcase/ProjectGallery";
+import { labelText, mutedLabelText, captionText, bodyText, statValueText } from "@/components/showcase/textStyles";
 
 // ─── Project Detail Data ─────────────────────────────────────────────────────
 
@@ -27,6 +28,54 @@ interface ProjectDetail {
 
 const projectDetails: ProjectDetail[] = [
   {
+    id: "turks-resort",
+    heroImage:
+      "/images/Turks & Caicos/BEACH BAR DUSK VIEW.jpg",
+    subtitle: "Hotel/ Resort",
+    location: "Grace Bay, Turks and Caicos",
+    year: "Expected 2027",
+    type: "Hospitality — Resort",
+    scope: "FF&E, Technical Development, and Project Documentation",
+    stats: [
+      { label: "Role", value: "FF&E, Technical Development, and Project Documentation" },
+      { label: "Scope", value: "Led FF&E specifications, technical development, project phased execution, and project documentation." },
+    ],
+    mediaType: "Rendering",
+    tagline: "Living by the Sea",
+    overviewText: [
+      "Located in Grace Bay, Turks & Caicos, Kempinski is an upscale residential resort currently under construction. The development includes four luxury villas and 68 condominium residences, along with restaurants, bars, a spa, pools, recreation areas, and shared amenities set within a tropical coastal landscape.",
+      "The design is shaped by the natural beauty of the beach setting, balancing contemporary architecture with a softer resort sensibility. Light materials, refined textures, and relaxed coastal details create an atmosphere that feels elegant, warm, and connected to the surrounding water, sand, and gardens.",
+      "Designed for high-end travelers, residents, and investors, the project supports a slower, more elevated way of living, where private residences, shared amenities, and the surrounding landscape work together as one coastal retreat."
+    ],
+    galleryImages: [
+      {
+        src: "/images/Turks & Caicos/N 04C_Entrance_3477_Option02_2023-02-20_1064.jpg",
+        alt: "Turks Resort — Entrance",
+        span: "wide",
+      },
+      {
+        src: "/images/Turks & Caicos/N 16A_Lobby Bar_3477_2023_02-21_772.jpg",
+        alt: "Turks Resort — Lobby Bar",
+        span: "normal",
+      },
+      {
+        src: "/images/Turks & Caicos/N 07A_ADD_3477_2023-02-21_1204.jpg",
+        alt: "Turks Resort — Amenity Deck",
+        span: "tall",
+      },
+      {
+        src: "/images/Turks & Caicos/N 07B_ADD Section view_3477_2023-02-20_1204.jpg",
+        alt: "Turks Resort — Amenity Deck Section View",
+        span: "normal",
+      },
+      {
+        src: "/images/Turks & Caicos/N 20A_Garden View 2_3477_2023-02-21_712.jpg",
+        alt: "Turks Resort — Garden View",
+        span: "normal",
+      },
+    ],
+  },
+  {
     id: "modera-parkside",
     heroImage:
       "/images/Modera Parkside Photos/Modera-Parkside (5).avif",
@@ -36,8 +85,8 @@ const projectDetails: ProjectDetail[] = [
     type: "Multifamily Residential",
     scope: "Interior Design",
     stats: [
-      { label: "Role", value: "Drawing, FF&E, Finishes and Installation" },
-      { label: "Scope", value: "Designer responsible for FF&E specifications, technical development, project documentation, phase execution, and on-site coordination of FF&E installation." },
+      { label: "Role", value: "Drawings, FF&E, Finishes, and Installation" },
+      { label: "Scope", value: "Designer responsible for FF&E specifications, technical development, project documentation, phased execution, and on-site coordination for FF&E installation." },
     ],
     mediaType: "Photography",
     tagline: "Between Park and Skyline",
@@ -94,8 +143,8 @@ const projectDetails: ProjectDetail[] = [
     type: "Multifamily Residential",
     scope: "Interior Design",
     stats: [
-      { label: "Role", value: "Drawing, FF&E, Finishes and Installation" },
-      { label: "Scope", value: "Designer responsible for FF&E specifications, technical development, project documentation, phase execution, and on-site coordination of FF&E installation." },
+      { label: "Role", value: "Drawings, FF&E, Finishes, and Installation" },
+      { label: "Scope", value: "Designer responsible for FF&E specifications, technical development, project documentation, phased execution, and on-site coordination for FF&E installation." },
     ],
     mediaType: "Photography",
     tagline: "Refined Interiors for Music City's Creative Energy",
@@ -142,15 +191,15 @@ const projectDetails: ProjectDetail[] = [
     type: "Multifamily Residential",
     scope: "Interior Design — Amenities",
     stats: [
-      { label: "Role", value: "Drawing,FF&E and Finishes" },
-      { label: "Scope", value: "Developed construction drawings, FF&E specifications, rendering coordination, project documentation, and phase execution support across the multifamily amenity spaces." },
+      { label: "Role", value: "Drawing, FF&E and Finishes" },
+      { label: "Scope", value: "Developed construction drawings, FF&E specifications, rendering coordination, project documentation, and phased execution support across the multifamily amenity spaces." },
     ],
     mediaType: "Rendering",
     tagline: "The Urban Reset",
     overviewText: [
-      "This new multifamily development in Charlotte is designed as a layered retreat within the pace of the city. The amenity spaces balance urban energy with residential comfort, creating places where residents can gather, work, recharge and move through their daily routines with ease.",
-      "The design pairs industrial materials with warmth and tactility. Concrete, dark ceilings, metal accents, and graphic lighting establish an urban edge, while wood, stone, saturated textiles, plush seating, and patterned rughs soften the experience. Bold moments of color and texture give each shared space a distinct identity without making the interiors feel overly themed.",
-      "From the lobby and lounge to the game room and fitness areas, the project creates a sequence of amenities that feel active, social and grounded. The result is a multifamily environment that supports city living while offering a strong sense of comfort and retreat."
+      "This new multifamily development in Charlotte is designed as a layered retreat within the pace of the city. The amenity spaces balance urban energy with residential comfort, creating places where residents can gather, work, recharge, and move through their daily routines with ease.",
+      "The design pairs industrial materials with warmth and tactility. Concrete, dark ceilings, metal accents, and graphic lighting establish an urban edge, while wood, stone, saturated textiles, plush seating, and patterned rugs soften the experience. Bold moments of color and texture give each shared space a distinct identity without making the interiors feel overly themed.",
+      "From the lobby and lounge to the game room and fitness areas, the project creates a sequence of amenities that feel active, social, and grounded. The result is a multifamily environment that supports city living while offering a strong sense of comfort and retreat."
     ],
     galleryImages: [
       {
@@ -184,7 +233,7 @@ const projectDetails: ProjectDetail[] = [
     id: "four-seasons-spa",
     heroImage:
       "/images/Four Seasons Spa Renderings/N 13A_Spa  Reception_Opt 1_3506_2022-08-25_310.jpg",
-    subtitle: "Spa/ Wellness",
+    subtitle: "Spa & Wellness",
     location: "Atlanta, Georgia",
     year: "2024",
     type: "Hospitality — Hotel Renovation",
@@ -196,9 +245,9 @@ const projectDetails: ProjectDetail[] = [
     mediaType: "Photography",
     tagline: "Sculpted by Light",
     overviewText: [
-      "Located within a Midtown Atlanta hotel, this spa renovation reimagines the guest journey through softness, luminosity, and layered texture. Light becomes a central design element, moving across curved walls, reflective stone, translucent partitions, and tactile surfaces to create a calm progression from arrival to treatment",
+      "Located within a Midtown Atlanta hotel, this spa renovation reimagines the guest journey through softness, luminosity, and layered texture. Light becomes a central design element, moving across curved walls, reflective stone, translucent partitions, and tactile surfaces to create a calm progression from arrival to treatment.",
       "A palette of cream, sand, warm wood, marble, and brushed metal gives the spa a quiet sense of refinement. Sculptural lighting, soft architectural curves, and delicate art moments add depth without making the space feel heavy.",
-      "Treatment rooms, relaxation areas and amenity spaces are composed to support a slower, more restorative rhythm. The resultis an intimate, polished spa environment shaped by atmosphere rather than excess."
+      "Treatment rooms, relaxation areas, and amenity spaces are composed to support a slower, more restorative rhythm. The result is an intimate, polished spa environment shaped by atmosphere rather than excess."
     ],
     galleryImages: [
       {
@@ -237,10 +286,10 @@ const projectDetails: ProjectDetail[] = [
       { label: "Scope", value: "Led finish palette development, FF&E selections, custom furniture design, drawings, specifications, and visual direction for renderings, coordinating with the visualization team to communicate the guestroom and suite design intent." },
     ],
     mediaType: "Rendering",
-    tagline: "Quietly Carribean",
+    tagline: "Quietly Caribbean",
     overviewText: [
       "Currently in development, this all-inclusive resort in Punta Cana is conceived as a calm coastal escape shaped by light, texture, and landscape. Warm wood, woven textiles, stone, softened neutrals, and green glazed tile create an atmosphere that feels layered, tactile, and quietly connected to its setting.",
-      "Guest rooms and suites are planned with open transitions between sleeping, lounging, and bathing, allowing the interiors to feel fluid and unforced. Rathter than leaning on overt tropical motifs, the design communicates its Carribean character through craft, proportion, and atmosphere.",
+      "Guest rooms and suites are planned with open transitions between sleeping, lounging, and bathing, allowing the interiors to feel fluid and unforced. Rather than leaning on overt tropical motifs, the design communicates its Caribbean character through craft, proportion, and atmosphere.",
     ],
     galleryImages: [
       {
@@ -255,12 +304,12 @@ const projectDetails: ProjectDetail[] = [
       },
       {
         src: "/images/Punta Cana Renderings/N 08A_4Bay  Living-Dining_3514.01_2024-08-02_310.jpg",
-        alt: "Punta Cana — Suite Living-Dining",
+        alt: "Punta Cana — Presidential Suite Living Room",
         span: "tall",
       },
       {
         src: "/images/Punta Cana Renderings/N 08B_3Bay  Living-Dining_3514.01_2024-08-02_960.jpg",
-        alt: "Punta Cana — Bay Living Area",
+        alt: "Punta Cana — Junior Suite Living Room",
         span: "wide",
       },
     ],
@@ -269,8 +318,8 @@ const projectDetails: ProjectDetail[] = [
     id: "modera-decatur",
     heroImage:
       "/images/Modera Decatur Photos/PHOTO 1.jpg",
-    subtitle: "Multifamily Residential",
-    location: "Atlanta, GA",
+    subtitle: "Multifamily",
+    location: "Atlanta, Georgia",
     year: "2023",
     type: "Multifamily Residential",
     scope: "Interior Design — Amenities",
@@ -287,7 +336,12 @@ const projectDetails: ProjectDetail[] = [
       {
         src: "/images/Modera Decatur Photos/PHOTO 2.jpg",
         alt: "Modera Decatur — Lobby",
-        span: "wide",
+        span: "tall",
+      },
+      {
+        src: "/images/Modera Decatur Photos/PHOTO 7.jpg",
+        alt: "Modera Decatur — Corridor",
+        span: "tall",
       },
       {
         src: "/images/Modera Decatur Photos/PHOTO 3.jpg",
@@ -309,11 +363,6 @@ const projectDetails: ProjectDetail[] = [
         alt: "Modera Decatur — Detail",
         span: "normal",
       },
-      {
-        src: "/images/Modera Decatur Photos/PHOTO 7.jpg",
-        alt: "Modera Decatur — Corridor",
-        span: "wide",
-      },
     ],
   },
   {
@@ -327,7 +376,7 @@ const projectDetails: ProjectDetail[] = [
     scope: "Interior Design",
     stats: [
       { label: "Role", value: "FF&E and Finishes" },
-      { label: "Scope", value: "Led finish palette development, FF&E selections, specification writing, material documentation, and vendor coordination to support the project's design direction and technical execution" },
+      { label: "Scope", value: "Led finish palette development, FF&E selections, specification writing, material documentation, and vendor coordination to support the project's design direction and technical execution." },
     ],
     mediaType: "Rendering",
     tagline: "Precision with Warmth",
@@ -391,21 +440,21 @@ const projectDetails: ProjectDetail[] = [
     id: "aqualina",
     heroImage:
       "/images/Aqualina Renderings/N 04A_Lobby_30176_Option02_2024-01-24_1064.jpg",
-    subtitle: "Spa & Wellness",
+    subtitle: "Luxury Residences",
     location: "Nassau, Bahamas",
-    year: "2024",
+    year: "Expected 2027",
     type: "Hospitality — Spa & Wellness Amenities",
     scope: "Interior Design",
     stats: [
       { label: "Role", value: "FF&E and Finishes" },
-      { label: "Scope", value: "Led finish palette development, FF&E selections, and visual direction across the wellness amenity suite, coordinating with the visualization team to communicate design intent." },
+      { label: "Scope", value: "Led finish palette development, FF&E selections, material documentation, specification writing, and design coordination across the property's luxury amenity spaces." },
     ],
     mediaType: "Rendering",
-    tagline: "A Wellness Amenity Suite, Grounded in Calm",
+    tagline: "Refined by Water",
     overviewText: [
-      "Aqualina brings together a full wellness amenity program — lobby, spa entry, massage and beauty rooms, plunge pool, fitness area, and cinema — into one cohesive retreat within the property.",
-      "Soft materials, filtered light, and quiet material transitions carry guests from arrival through treatment spaces, while the fitness and cinema areas offer a more energized counterpoint within the same material palette.",
-      "The result is an amenity experience that feels continuous and unhurried, prioritizing calm without sacrificing the variety guests expect from a full wellness program."
+      "Inspired by the calming qualities of water, Aqualina is designed as a luxury residential retreat that blends modern elegance with coastal ease. The interiors create a serene escape for residents, with public spaces that feel refined, restorative, and quietly connected to the property's coastal identity.",
+      "The design draws from natural references such as coral, driftwood, shells, rippling water, and soft aquatic patterns. Rather than using these ideas literally, they are translated through layered textures, fluid forms, light-toned finishes, and tactile materials that bring a sense of movement and softness throughout the property.",
+      "From the lobby and spa to the massage room, fitness center, beauty salon, and cinema, each amenity supports a different part of the resident experience. The result is a polished residential environment that feels calm, comfortable, and elevated — a place where daily routines are shaped by relaxation, wellness, and understated luxury."
     ],
     galleryImages: [
       {
@@ -450,18 +499,20 @@ const projectDetails: ProjectDetail[] = [
     heroImage:
       "/images/SCAD undergrad work/KAUM Cultural Community Hub/KAUM Cultural Community Hub - Jendela Maumere Gallery.jpg",
     subtitle: "Cultural & Community Hub",
-    location: "Sikka Regency, East Nusa Tenggara",
-    year: "2024",
+    location: "East Nusa Tenggara",
+    year: "Indonesia",
     type: "Mixed-Use / Cultural & Community Hub",
     scope: "Architecture & Evidence-Based Design",
     stats: [
-      { label: "Role", value: "Cultural & Community Hub" },
-      { label: "Scope", value: "Architecture & Evidence-Based Design" },
+      { label: "Role", value: "Research, Concept, Space Planning, Drawings, FF&E, Finishes, and Visualization" },
+      { label: "Scope", value: "Developed the project from research through final design, including cultural and site analysis, client and user profiling, programming, concept development, space planning, user journey mapping, material selection , furniture direction, renderings, and presentation documentation." },
     ],
     mediaType: "Rendering",
-    tagline: "Interweaving Heritage and Community in East Nusa Tenggara",
+    tagline: "Woven by Place and People",
     overviewText: [
-      "Kaum Cultural Community Hub serves as a transformative anchor in East Nusa Tenggara, bridging the gap between local heritage and global curiosity. The design rejects the typical \"tourist-centric\" model, instead prioritizing a vernacular-inspired framework that empowers the Sikka community. Through a semi-open plan and a material palette drawn directly from the earth and handwoven textiles, the facility provides a dignified stage for cultural preservation and economic mobility.",
+      "Located in East Nusa Tenggara, Indonesia, Kaum Cultural Community Hub is an award-winning capstone project designed to support both local community life and cultural tourism. The project brings together exhibition, workshop, performance, retail, dining, and gathering spaces to create a facility where local traditions can be shared, preserved, and experienced.",
+      "The design concept, Interweave, is rooted in connection. Inspired by the structure of woven fabric, the semi-open plan allows spaces to act as \"knots\" while users become the \"strands\" moving through them. This creates a shared environment where locals and visitors can interact naturally through craft, performance, food, storytelling, and everyday exchange.",
+      "Research, site analysis, and vernacular architecture shaped the project's planning and material direction. Local references such as Maumere fabric motifs, bamboo, rattan, rammed earth, and handwoven textiles informed the geometry, palette, and atmosphere of the interior. The result is a cultural and community hub that feels welcoming, grounded, and deeply tied to place.",
     ],
     galleryImages: [
       {
@@ -575,6 +626,24 @@ export default async function ProjectPage({
 
   const detail = projectDetails.find((d) => d.id === projectSlug);
 
+  const entryIndex = projectEntries.findIndex((p) => p.id === projectSlug);
+  const nextEntry =
+    entryIndex !== -1
+      ? projectEntries[(entryIndex + 1) % projectEntries.length]
+      : undefined;
+  const prevEntry =
+    entryIndex !== -1
+      ? projectEntries[
+          (entryIndex - 1 + projectEntries.length) % projectEntries.length
+        ]
+      : undefined;
+  const nextDetail = nextEntry
+    ? projectDetails.find((d) => d.id === nextEntry.id)
+    : undefined;
+  const prevDetail = prevEntry
+    ? projectDetails.find((d) => d.id === prevEntry.id)
+    : undefined;
+
   // ─── Render ───────────────────────────────────────────────────────────────
 
   if (detail) {
@@ -626,7 +695,7 @@ export default async function ProjectPage({
 
             {/* Left — editorial text */}
             <div>
-              <p className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#b8955a] mb-6">
+              <p className={`${labelText} mb-6`}>
                 Overview
               </p>
               <h2 className="font-cormorant text-3xl md:text-4xl font-light text-[#1a1a1a] mb-8 leading-snug">
@@ -637,14 +706,16 @@ export default async function ProjectPage({
                 {detail.overviewText.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="font-cormorant text-base md:text-lg text-[#4a4a4a] leading-relaxed font-light"
+                    className={bodyText}
                   >
                     {paragraph}
                   </p>
                 ))}
               </div>
-              <p className="mt-6 font-cormorant text-sm tracking-[0.15em] text-[#9a9590] italic">
-                {detail.id === "kaum-cultural-hub" || detail.id === "beach-resort"
+              <p className={`mt-6 ${captionText}`}>
+                {detail.id === "kaum-cultural-hub"
+                  ? "Completed as an individual BFA thesis project."
+                  : detail.id === "beach-resort"
                   ? "Undergrad Work"
                   : "Work completed while at HBA."}
               </p>
@@ -658,21 +729,27 @@ export default async function ProjectPage({
                     key={stat.label}
                     className="bg-[#FAF9F6] px-6 py-7 flex flex-col gap-2"
                   >
-                    <span className="font-cormorant text-[10px] tracking-[0.3em] uppercase text-[#b8955a]">
+                    <span className={labelText}>
                       {stat.label}
                     </span>
-                    <span className="font-cormorant text-lg md:text-xl text-[#1a1a1a] font-light">
+                    <span className={statValueText}>
                       {stat.value}
                     </span>
                   </div>
                 ))}
               </div>
               {detail.id === "kaum-cultural-hub" && (
-                <div className="mt-10 md:mt-12 flex justify-end">
+                <div className="mt-10 md:mt-12 flex justify-end gap-6">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/muse_design_award.png"
                     alt="MUSE Design Award"
+                    className="h-20 md:h-30 w-auto object-contain"
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/IDA 22-Bronze.jpeg"
+                    alt="IDA Design Awards Bronze Winner 2022"
                     className="h-20 md:h-30 w-auto object-contain"
                   />
                 </div>
@@ -684,16 +761,44 @@ export default async function ProjectPage({
         {/* ── Gallery ──────────────────────────────────────────────── */}
         <ProjectGallery images={detail.galleryImages} mediaType={detail.mediaType} />
 
-        {/* ── Back to Portfolio ────────────────────────────────────── */}
-        <section className="py-20 md:py-28 flex flex-col items-center gap-6 bg-[#FAF9F6]">
-          <div className="w-[1px] h-16 bg-[#b8955a] opacity-40" />
-          <a
-            href="/#projects"
-            className="font-cormorant text-xs tracking-[0.35em] uppercase text-[#1a1a1a] hover:text-[#b8955a] transition-colors duration-300 inline-flex items-center gap-3"
-          >
-            <ArrowLeft size={14} />
-            Back to Portfolio
-          </a>
+        {/* ── Next / Previous Project ─────────────────────────────── */}
+        <section className="border-t border-[#e8e4de] bg-[#FAF9F6]">
+          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#e8e4de]">
+            {prevEntry && prevDetail && (
+              <a
+                href={prevEntry.linkHref}
+                className="group py-16 md:py-20 px-8 md:px-16 flex flex-col items-start gap-4 hover:bg-[#f2efe9] transition-colors duration-300"
+              >
+                <span className="font-cormorant text-xs tracking-[0.35em] uppercase text-[#b8955a] inline-flex items-center gap-3">
+                  <ArrowLeft size={14} className="transition-transform duration-300 group-hover:-translate-x-1" />
+                  Previous Project
+                </span>
+                <span className="font-cormorant text-2xl md:text-3xl font-light text-[#1a1a1a]">
+                  {prevEntry.title}
+                </span>
+                <span className={mutedLabelText}>
+                  {prevDetail.year}
+                </span>
+              </a>
+            )}
+            {nextEntry && nextDetail && (
+              <a
+                href={nextEntry.linkHref}
+                className="group py-16 md:py-20 px-8 md:px-16 flex flex-col items-end gap-4 text-right hover:bg-[#f2efe9] transition-colors duration-300 md:col-start-2"
+              >
+                <span className="font-cormorant text-xs tracking-[0.35em] uppercase text-[#b8955a] inline-flex items-center gap-3">
+                  Next Project
+                  <ArrowLeft size={14} className="rotate-180 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <span className="font-cormorant text-2xl md:text-3xl font-light text-[#1a1a1a]">
+                  {nextEntry.title}
+                </span>
+                <span className={mutedLabelText}>
+                  {nextDetail.year}
+                </span>
+              </a>
+            )}
+          </div>
         </section>
       </main>
     );
@@ -738,19 +843,19 @@ export default async function ProjectPage({
       <section className="py-24 md:py-32 px-8 md:px-16 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 items-start">
           <div>
-            <p className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#b8955a] mb-6">
+            <p className={`${labelText} mb-6`}>
               Overview
             </p>
             <h2 className="font-cormorant text-3xl md:text-4xl font-light text-[#1a1a1a] mb-8 leading-snug">
               {projectItem.title}
             </h2>
             <div className="w-10 h-[1px] bg-[#b8955a] opacity-50 mb-8" />
-            <p className="font-cormorant text-lg md:text-2xl text-[#4a4a4a] leading-relaxed font-light">
+            <p className={bodyText}>
               A visionary approach to {projectItem.title}, blending timeless elegance with modern
               sophistication. This project emphasizes meticulous attention to detail, premium
               materials, and a deep understanding of spatial harmony.
             </p>
-            <p className="mt-6 font-cormorant text-sm tracking-[0.15em] text-[#9a9590] italic">
+            <p className={`mt-6 ${captionText}`}>
               Work completed while at HBA.
             </p>
           </div>

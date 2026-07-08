@@ -15,36 +15,43 @@ const accolades = [
     award: "Young Designers Collective (YDC)",
     category: "Ambassador for Atlanta's emerging design community, supporting curated events and industry engagement.",
     year: "2026",
+    url: "#",
   },
   {
     award: "30 Under 30 Interior Design",
     category: "Named along emerging designers under 30 for design excellence, leadership, and industry impact.",
     year: "2025",
+    url: "https://info.interiordesign.net/interior-design-30/30",
   },
   {
     award: "IDA Design Awards",
     category: "Bronze recognition for Conceptual Interior Design.",
     year: "2024",
+    url: "https://www.idesignawards.com",
   },
   {
     award: "MUSE Design Awards",
     category: "Silver recognition for Cultural Interior Design.",
     year: "2023",
+    url: "https://design.museaward.com",
   },
   {
     award: "ASID Design Excellence Award",
     category: "Gold recognition for Unique Space Design and Hospitality Design Concepts; Silver reconginition for Residential Design Concept.",
     year: "2023",
+    url: "https://www.asid.org/resources/awards",
   },
   {
     award: "Metropolis Future100",
     category: "Named among North America's rising design talents reimagining the future of Interior Design.",
     year: "2022",
+    url: "https://metropolismag.com/programs/future100/",
   },
   {
     award: "ASID Portfolio Competition",
     category: "Portfolio winner, recognized for concept, content, and contextual storytelling.",
     year: "2022",
+    url: "https://www.asid.org/resources/awards/student-portfolio-competition",
   },
 ];
 
@@ -64,19 +71,30 @@ export default function PressSection() {
             <motion.div
               key={item.award}
               {...fadeUp(0.08 * (i + 1))}
-              className="group border-t border-[#e0dcd6] py-4 md:py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-8 transition-colors duration-300 hover:bg-[#f0ece6]/50 px-4 md:px-8 -mx-4 md:-mx-8"
+              className="group border-t border-[#e0dcd6]"
             >
-              <div className="flex-1">
-                <h3 className="font-cormorant text-2xl md:text-3xl font-light text-[#1a1a1a] group-hover:text-[#d4af37] transition-colors duration-300">
-                  {item.award}
-                </h3>
-                <p className="font-cormorant text-sm text-[#888] mt-1 tracking-wide">
-                  {item.category}
-                </p>
-              </div>
-              <span className="font-cormorant text-sm tracking-[0.2em] text-[#aaa] uppercase">
-                {item.year}
-              </span>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${item.award} award details`}
+                className="py-4 md:py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-8 transition-colors duration-300 hover:bg-[#f0ece6]/50 px-4 md:px-8 -mx-4 md:-mx-8 no-underline"
+              >
+                <div className="flex-1">
+                  <h3 className="font-cormorant text-2xl md:text-3xl font-light text-[#1a1a1a] group-hover:text-[#d4af37] transition-colors duration-300 inline-flex items-center gap-2">
+                    {item.award}
+                    <span className="text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#d4af37]">
+                      ↗
+                    </span>
+                  </h3>
+                  <p className="font-cormorant text-sm text-[#888] mt-1 tracking-wide">
+                    {item.category}
+                  </p>
+                </div>
+                <span className="font-cormorant text-sm tracking-[0.2em] text-[#aaa] uppercase">
+                  {item.year}
+                </span>
+              </a>
             </motion.div>
           ))}
           <div className="border-t border-[#e0dcd6]" />

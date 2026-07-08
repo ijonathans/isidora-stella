@@ -85,16 +85,25 @@ export default function ContactFooter() {
               </address>
             </div>
 
-            <div className={styles.contactLinks}>
-              <a
-                href="https://www.linkedin.com/in/isidorastellayubelia/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.contactSocialLink}
-                aria-label="LinkedIn"
-              >
-                LinkedIn
-              </a>
+            <div className={styles.contactAddress}>
+              <p className={styles.contactAddressLabel}>WhatsApp</p>
+              <address className={styles.contactAddressBody}>
+                <a href="https://wa.me/6281290624450" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>+62 812 9062 4450</a>
+              </address>
+            </div>
+
+            <div className={styles.contactAddress}>
+              <p className={styles.contactAddressLabel}>LinkedIn</p>
+              <address className={styles.contactAddressBody}>
+                <a
+                  href="https://www.linkedin.com/in/isidorastellayubelia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  isidorastellayubelia
+                </a>
+              </address>
             </div>
           </motion.div>
         </div>

@@ -9,7 +9,6 @@ import { projectEntries } from "@/components/showcase/projectData";
 const iconMap: Record<string, React.ReactNode> = {
 	"punta-cana": <TowerControl size={24} />,
 	"howarth-aesthetic": <Pyramid size={24} />,
-	"doubletree-fandb": <Landmark size={24} />,
 	aqualina: <Mountain size={24} />,
 	"four-seasons-spa": <Mountain size={24} />,
 	woodlawn: <Castle size={24} />,
@@ -17,7 +16,6 @@ const iconMap: Record<string, React.ReactNode> = {
 	"modera-parkside": <Building size={24} />,
 	"modera-decatur": <Building size={24} />,
 	"kaum-cultural-hub": <Landmark size={24} />,
-	"beach-resort": <Mountain size={24} />,
 };
 
 export const projectItems: CardItem[] = projectEntries.map((entry) => ({

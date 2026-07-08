@@ -8,6 +8,13 @@ export interface ProjectEntry {
 
 export const projectEntries: ProjectEntry[] = [
   {
+    id: "turks-resort",
+    title: "Turks Resort",
+    description: "Resort (Expected 2027) — Grace Bay, Turks and Caicos",
+    imgSrc: "/images/Turks & Caicos/BEACH BAR DUSK VIEW.jpg",
+    linkHref: "/turks-resort",
+  },
+  {
     id: "punta-cana",
     title: "All-Inclusive Resort",
     description: "Resort (2026) — Punta Cana, Dominican Republic",
@@ -22,25 +29,11 @@ export const projectEntries: ProjectEntry[] = [
     linkHref: "/howarth-aesthetic",
   },
   {
-    id: "doubletree-fandb",
-    title: "DoubleTree by Hilton",
-    description: "F&B / Restaurant (2025) — Pakistan",
-    imgSrc: "/images/DoubleTree by Hilton F&B Renderings/N 07A_Three Meal_3523_2025-06-19_197.jpg",
-    linkHref: "/doubletree-fandb",
-  },
-  {
     id: "aqualina",
     title: "Aqualina",
-    description: "Spa & Wellness (2024) — Nassau, Bahamas",
+    description: "Luxury Residences (Expected 2027) — Nassau, Bahamas",
     imgSrc: "/images/Aqualina Renderings/N 04A_Lobby_30176_Option02_2024-01-24_1064.jpg",
     linkHref: "/aqualina",
-  },
-  {
-    id: "four-seasons-spa",
-    title: "Four Seasons Spa",
-    description: "Hotel Renovation (2024) — Atlanta, GA",
-    imgSrc: "/images/Four Seasons Spa Renderings/N 13E_Spa Relaxation_3506_Option-04_2022-08-24_743.jpg",
-    linkHref: "/four-seasons-spa",
   },
   {
     id: "woodlawn",
@@ -64,6 +57,13 @@ export const projectEntries: ProjectEntry[] = [
     linkHref: "/modera-parkside",
   },
   {
+    id: "four-seasons-spa",
+    title: "Four Seasons Spa",
+    description: "Hotel Renovation (2024) — Atlanta, GA",
+    imgSrc: "/images/Four Seasons Spa Renderings/N 13E_Spa Relaxation_3506_Option-04_2022-08-24_743.jpg",
+    linkHref: "/four-seasons-spa",
+  },
+  {
     id: "modera-decatur",
     title: "Modera Decatur",
     description: "Multifamily (2023) — Atlanta, GA",
@@ -76,12 +76,5 @@ export const projectEntries: ProjectEntry[] = [
     description: "Cultural & Community Hub (2024) — Sikka, INA",
     imgSrc: "/images/SCAD undergrad work/KAUM Cultural Community Hub/KAUM Cultural Community Hub - Jendela Maumere Gallery_UpdatedRender.png",
     linkHref: "/kaum-cultural-hub",
-  },
-  {
-    id: "beach-resort",
-    title: "Beach Resort",
-    description: "Hospitality (2024) — Alys Beach, FL",
-    imgSrc: "/images/SCAD undergrad work/Six Senses/Six Senses 1.png",
-    linkHref: "/beach-resort",
   },
 ];

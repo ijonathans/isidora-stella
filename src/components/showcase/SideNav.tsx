@@ -17,12 +17,9 @@ const navItems: NavItem[] = [
   { href: "#contact", label: "Contact" },
 ];
 
-const darkSections = new Set(["hero", "contact"]);
-
 export default function SideNav() {
   const [activeSection, setActiveSection] = useState<string>("hero");
-  const [isDark, setIsDark] = useState(true);
-  const [showNav, setShowNav] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Handle cross-page deep links by checking the hash on mount
   useEffect(() => {
@@ -62,7 +59,6 @@ export default function SideNav() {
         }
         if (maxRatio > 0) {
           setActiveSection(maxId);
-          setIsDark(darkSections.has(maxId));
         }
       },
       { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
@@ -73,7 +69,7 @@ export default function SideNav() {
     });
 
     const handleScroll = () => {
-      setShowNav(window.scrollY > 10);
+      setScrolled(window.scrollY > 10);
     };
 
     handleScroll();
@@ -93,29 +89,27 @@ export default function SideNav() {
 
   return (
     <nav
-      className={cn(
-        styles.sideNav,
-        isDark && styles.isDark,
-        !showNav && "opacity-0 pointer-events-none"
-      )}
-      style={{ transition: "opacity 0.5s ease-in-out" }}
+      className={cn(styles.topNav, scrolled && styles.isScrolled)}
       aria-label="Page navigation"
     >
-      <ul className={styles.sideNavList}>
-        {navItems.map((item) => (
-          <li key={item.href}>
-            <a
-              href={item.href}
-              className={cn(styles.sideNavLink, activeSection === item.href.replace("#", "") && styles.isActive)}
-              onClick={(e) => handleClick(e, item.href)}
-              aria-label={item.label}
-            >
-              <span className={styles.sideNavDot} />
-              <span className={styles.sideNavLabel}>{item.label}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.topNavInner}>
+        <ul className={styles.topNavList}>
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className={cn(
+                  styles.topNavLink,
+                  activeSection === item.href.replace("#", "") && styles.isActive
+                )}
+                onClick={(e) => handleClick(e, item.href)}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }

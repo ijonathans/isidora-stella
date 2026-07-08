@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { labelText } from "@/components/showcase/textStyles";
 
 interface GalleryImage {
   src: string;
@@ -54,7 +55,7 @@ export default function ProjectGallery({ images, mediaType }: ProjectGalleryProp
 
   return (
     <section className="px-4 md:px-8 pb-24 md:pb-32 max-w-7xl mx-auto">
-      <p className="font-cormorant text-xs tracking-[0.3em] uppercase text-[#b8955a] mb-8 px-4">
+      <p className={`${labelText} mb-8 px-4`}>
         {mediaType}
       </p>
 
