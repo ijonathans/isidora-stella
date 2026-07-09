@@ -11,7 +11,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: "#hero", label: "Home" },
-  { href: "#about", label: "About Me" },
+  { href: "#about", label: "About" },
   { href: "#process", label: "Process" },
   { href: "#projects", label: "Projects" },
   { href: "#press", label: "Press" },
@@ -21,6 +21,7 @@ const navItems: NavItem[] = [
 export default function SideNav() {
   const [activeSection, setActiveSection] = useState<string>("hero");
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Handle cross-page deep links by checking the hash on mount
   useEffect(() => {
@@ -84,13 +85,14 @@ export default function SideNav() {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setMenuOpen(false);
     const el = document.getElementById(href.replace("#", ""));
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <nav
-      className={cn(styles.topNav, scrolled && styles.isScrolled)}
+      className={cn(styles.topNav, (scrolled || menuOpen) && styles.isScrolled)}
       aria-label="Page navigation"
     >
       <div className={styles.topNavInner}>
@@ -101,6 +103,37 @@ export default function SideNav() {
                 href={item.href}
                 className={cn(
                   styles.topNavLink,
+                  activeSection === item.href.replace("#", "") && styles.isActive
+                )}
+                onClick={(e) => handleClick(e, item.href)}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          type="button"
+          className={cn(styles.topNavToggle, menuOpen && styles.isOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      <div className={cn(styles.topNavDropdown, menuOpen && styles.isOpen)}>
+        <ul className={styles.topNavDropdownList}>
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className={cn(
+                  styles.topNavDropdownLink,
                   activeSection === item.href.replace("#", "") && styles.isActive
                 )}
                 onClick={(e) => handleClick(e, item.href)}

@@ -4,6 +4,7 @@ import { useState, useRef, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import styles from "@/app/isidora-stella.module.css";
+import DownloadResumeButton from "@/components/resume/DownloadResumeButton";
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 40 },
@@ -69,6 +70,10 @@ export default function ContactFooter() {
           <motion.h2 {...fadeUp(0.1)} className={styles.contactHeading}>
             For a colaborations, project inquireies <br /> or creative conversations, feel free to reach out.
           </motion.h2>
+
+          <motion.div {...fadeUp(0.18)} style={{ marginBottom: "2rem" }}>
+            <DownloadResumeButton />
+          </motion.div>
 
           <motion.div {...fadeUp(0.2)} className={styles.contactInfo}>
             <div className={styles.contactAddress}>

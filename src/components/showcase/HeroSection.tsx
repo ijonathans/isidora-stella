@@ -9,11 +9,25 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-});
+const EASE_OUT_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const NAME = "Isidora Stella Yubelia";
+
+const nameContainer = {
+  initial: {},
+  animate: {
+    transition: { staggerChildren: 0.04, delayChildren: 0.2 },
+  },
+};
+
+const nameChar = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: EASE_OUT_EXPO },
+  },
+};
 
 export default function HeroSection() {
   return (
@@ -33,17 +47,23 @@ export default function HeroSection() {
 
       <div className={`relative z-10 flex flex-col items-center text-center px-6 ${cormorant.className}`}>
         <motion.h1
-          {...fadeUp(0.1)}
+          initial="initial"
+          animate="animate"
+          variants={nameContainer}
+          aria-label={NAME}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white tracking-wide"
         >
-          Isidora Stella Yubelia
+          {NAME.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              variants={nameChar}
+              aria-hidden="true"
+              className="inline-block"
+            >
+              {char === " " ? " " : char}
+            </motion.span>
+          ))}
         </motion.h1>
-        <motion.p
-          {...fadeUp(0.35)}
-          className="mt-6 text-base sm:text-lg md:text-xl font-light tracking-[0.2em] uppercase text-white/80"
-        >
-          Award-Winning Interior Designer
-        </motion.p>
       </div>
     </section>
   );

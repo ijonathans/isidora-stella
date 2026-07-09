@@ -8,25 +8,18 @@ export interface ProjectEntry {
 
 export const projectEntries: ProjectEntry[] = [
   {
+    id: "punta-cana",
+    title: "All-Inclusive Resort",
+    description: "Resort (Expected 2028) — Punta Cana, Dominican Republic",
+    imgSrc: "/images/Punta Cana Renderings/N 01A_3Bay Bedroom_3514.01_2024-08-02_743.jpg",
+    linkHref: "/punta-cana",
+  },
+  {
     id: "turks-resort",
     title: "Turks Resort",
     description: "Resort (Expected 2027) — Grace Bay, Turks and Caicos",
     imgSrc: "/images/Turks & Caicos/BEACH BAR DUSK VIEW.jpg",
     linkHref: "/turks-resort",
-  },
-  {
-    id: "punta-cana",
-    title: "All-Inclusive Resort",
-    description: "Resort (2026) — Punta Cana, Dominican Republic",
-    imgSrc: "/images/Punta Cana Renderings/N 01A_3Bay Bedroom_3514.01_2024-08-02_743.jpg",
-    linkHref: "/punta-cana",
-  },
-  {
-    id: "howarth-aesthetic",
-    title: "Howarth",
-    description: "Aesthetic Clinic (2025) — Paradise Valley, AZ",
-    imgSrc: "/images/Howarth Aesthetic Renderings/N 04A_Reception_3524_2024-09-23_197.jpg",
-    linkHref: "/howarth-aesthetic",
   },
   {
     id: "aqualina",
@@ -36,11 +29,11 @@ export const projectEntries: ProjectEntry[] = [
     linkHref: "/aqualina",
   },
   {
-    id: "woodlawn",
-    title: "225 Woodlawn Rd",
-    description: "Multifamily (2025) — Charlotte, NC",
-    imgSrc: "/images/225 Woodlawn Renderings/N 04A_L1 Reception_3512_2022-10-19_1064.jpg",
-    linkHref: "/woodlawn",
+    id: "howarth-aesthetic",
+    title: "Howarth",
+    description: "Aesthetic Clinic (2026) — Paradise Valley, AZ",
+    imgSrc: "/images/Howarth Aesthetic Renderings/N 04A_Reception_3524_2024-09-23_197.jpg",
+    linkHref: "/howarth-aesthetic",
   },
   {
     id: "modera-mcgavock",
@@ -55,6 +48,13 @@ export const projectEntries: ProjectEntry[] = [
     description: "Multifamily (2025) — Atlanta, GA",
     imgSrc: "/images/Modera Parkside Photos/Modera-Parkside (6).avif",
     linkHref: "/modera-parkside",
+  },
+  {
+    id: "woodlawn",
+    title: "225 Woodlawn Rd",
+    description: "Multifamily (2024) — Charlotte, NC",
+    imgSrc: "/images/225 Woodlawn Renderings/N 04A_L1 Reception_3512_2022-10-19_1064.jpg",
+    linkHref: "/woodlawn",
   },
   {
     id: "four-seasons-spa",
@@ -73,7 +73,7 @@ export const projectEntries: ProjectEntry[] = [
   {
     id: "kaum-cultural-hub",
     title: "Kaum Cultural Hub",
-    description: "Cultural & Community Hub (2024) — Sikka, INA",
+    description: "Cultural & Community Hub — Sikka, INA",
     imgSrc: "/images/SCAD undergrad work/KAUM Cultural Community Hub/KAUM Cultural Community Hub - Jendela Maumere Gallery_UpdatedRender.png",
     linkHref: "/kaum-cultural-hub",
   },
