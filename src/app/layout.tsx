@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import FeedbackNotes from "@/components/feedback/FeedbackNotes";
 
 export const metadata: Metadata = {
   title: "Isidora Stella — Interior Designer",
@@ -29,7 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${cormorant.variable} ${inter.variable}`}>{children}</body>
+      <body className={`${cormorant.variable} ${inter.variable}`}>
+        {children}
+        <FeedbackNotes />
+      </body>
     </html>
   );
 }

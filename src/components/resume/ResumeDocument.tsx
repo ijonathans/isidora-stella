@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 
 function TitlePage() {
   return (
-    <Page size="A4" orientation="landscape" style={{ ...styles.page, backgroundColor: ink }}>
+    <Page size="A4" orientation="landscape" style={{ ...styles.page, backgroundColor: cream }}>
       <View
         style={{
           flex: 1,
@@ -115,7 +115,7 @@ function TitlePage() {
             fontFamily: "Cormorant Garamond",
             fontWeight: 500,
             fontSize: 52,
-            color: "#ffffff",
+            color: ink,
             textAlign: "center",
             letterSpacing: 1,
           }}
@@ -128,25 +128,58 @@ function TitlePage() {
             fontFamily: "Cormorant Garamond",
             fontStyle: "italic",
             fontSize: 15,
-            color: "#c9c9c9",
+            color: "#555555",
             textAlign: "center",
           }}
         >
           Designing spaces with story, atmosphere, and a sense of place.
         </Text>
       </View>
+    </Page>
+  );
+}
+
+// ─── Last Page: Contact Me ─────────────────────────────────────────────────────
+
+function ContactPage() {
+  return (
+    <Page size="A4" orientation="landscape" style={{ ...styles.page, backgroundColor: ink }}>
       <View
         style={{
-          paddingHorizontal: 60,
-          paddingVertical: 24,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          borderTopWidth: 1,
-          borderTopColor: "#333333",
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 60,
         }}
       >
-        <Text style={{ fontSize: 9, color: "#999999" }}>{resumeContact.email}</Text>
-        <Text style={{ fontSize: 9, color: "#999999" }}>{resumeContact.linkedin}</Text>
+        <Text
+          style={{
+            fontFamily: "Inter",
+            fontSize: 10,
+            letterSpacing: 5,
+            color: gold,
+            textTransform: "uppercase",
+            marginBottom: 22,
+          }}
+        >
+          Contact Me
+        </Text>
+        <Text
+          style={{
+            fontFamily: "Cormorant Garamond",
+            fontWeight: 500,
+            fontSize: 44,
+            color: "#ffffff",
+            textAlign: "center",
+            letterSpacing: 1,
+          }}
+        >
+          Isidora Stella Yubelia
+        </Text>
+        <View style={{ height: 1, width: 90, backgroundColor: gold, marginTop: 28, marginBottom: 28, opacity: 0.8 }} />
+        <Text style={{ fontSize: 11, color: "#c9c9c9", marginBottom: 6 }}>{resumeContact.email}</Text>
+        <Text style={{ fontSize: 11, color: "#c9c9c9", marginBottom: 6 }}>{resumeContact.linkedin}</Text>
+        <Text style={{ fontSize: 11, color: "#c9c9c9" }}>{resumeContact.phone}</Text>
       </View>
     </Page>
   );
@@ -158,8 +191,8 @@ function AboutPage() {
   return (
     <Page size="A4" orientation="landscape" style={styles.page}>
       <View style={{ flexDirection: "row", flex: 1 }}>
-        <View style={{ width: "38%", position: "relative" }}>
-          <Image src="/images/potrait.png" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <View style={{ width: "38%", position: "relative", backgroundColor: cream, justifyContent: "center" }}>
+          <Image src="/images/potrait.png" style={{ width: "100%", objectFit: "contain" }} />
         </View>
         <View style={{ width: "62%", padding: 48, justifyContent: "center" }}>
           <Text style={styles.displayLabel}>About Me</Text>
@@ -229,8 +262,8 @@ function ResumePage() {
         {/* Column 2: Experience */}
         <View style={{ width: "36%" }}>
           <Text style={styles.colTitle}>Relevant Experiences</Text>
-          {experience.map((e) => (
-            <View key={e.company} style={{ marginBottom: 10 }}>
+          {experience.map((e, i) => (
+            <View key={`${e.company}-${e.dates}-${i}`} style={{ marginBottom: 10 }}>
               <Text style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 10 }}>{e.company}</Text>
               <Text style={{ fontFamily: "Cormorant Garamond", fontStyle: "italic", fontSize: 9.5 }}>
                 {e.role} | {e.location} | {e.dates}
@@ -277,12 +310,11 @@ function ContentsPage() {
       <Text style={styles.displayLabel}>Contents</Text>
       <Text style={{ ...styles.heading, marginBottom: 24 }}>Selected Works</Text>
 
-      <View style={{ flexDirection: "row", flexWrap: "wrap", rowGap: 10 }}>
+      <View>
         {resumeProjects.map((p, i) => (
           <View
             key={p.id}
             style={{
-              width: "50%",
               flexDirection: "row",
               justifyContent: "space-between",
               paddingRight: 24,
@@ -332,9 +364,13 @@ function ProjectPage({ project, index }: { project: (typeof resumeProjects)[numb
           <View style={{ ...styles.hr, marginTop: 0, marginBottom: 14 }} />
           <Text style={{ fontSize: 9.5, color: "#555", marginBottom: 4 }}>{project.location}</Text>
           <Text style={{ fontSize: 9.5, color: "#555", marginBottom: 14 }}>{project.year}</Text>
-          <Text style={{ fontFamily: "Cormorant Garamond", fontSize: 12.5, lineHeight: 1.6, color: "#333" }}>
+          <Text style={{ fontFamily: "Cormorant Garamond", fontSize: 12.5, lineHeight: 1.6, color: "#333", marginBottom: 14 }}>
             {project.overview}
           </Text>
+          <Text style={{ fontSize: 8.5, color: gold, letterSpacing: 1, textTransform: "uppercase", marginBottom: 3 }}>
+            Role
+          </Text>
+          <Text style={{ fontSize: 9, color: "#555", lineHeight: 1.4 }}>{project.role}</Text>
         </View>
       </View>
     </Page>
@@ -355,6 +391,7 @@ export default function ResumeDocument() {
       {resumeProjects.map((project, i) => (
         <ProjectPage key={project.id} project={project} index={i} />
       ))}
+      <ContactPage />
     </Document>
   );
 }

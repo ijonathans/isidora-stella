@@ -31,84 +31,51 @@ export const recognition = [
     date: "2025",
   },
   {
-    award: "IDA Design Awards",
-    detail: "Capstone project awarded bronze for conceptual interior design category.",
-    date: "Jan 2024",
+    award: "MUSE Design Award",
+    detail: "Silver recognition for Cultural Interior Design.",
+    date: "2023",
   },
   {
-    award: "MUSE Design Awards",
-    detail: "Capstone project awarded silver for cultural interior design category.",
-    date: "Mar 2023",
+    award: "IDA Design Award",
+    detail: "Bronze recognition for Conceptual Interior Design.",
+    date: "2023",
   },
   {
-    award: "ASID Design Excellence Awards",
-    detail: "Awarded gold for unique space design concept, gold for design concept in hospitality, and silver for residential design concept.",
-    date: "Sep 2022",
-  },
-  {
-    award: "Metropolis “Future100”",
-    detail: "Named one of the “Top 100 students in North America that are reimagining interior design”.",
-    date: "Apr 2022",
-  },
-  {
-    award: "ASID Student Portfolio Competition",
-    detail: "Winner of the 2022 Portfolio Competition evaluated on concept, content, and context.",
-    date: "Aug 2022",
-  },
-  {
-    award: "SCAD Out To Launch",
-    detail: "Chosen to represent the interior design major with high standard of professionalism.",
-    date: "May 2022",
+    award: "ASID Design Excellence Award",
+    detail: "Gold recognition for Unique Space Design Concept, gold recognition for Hospitality Design Concept, and silver recognition for Residential Design Concept.",
+    date: "2022",
   },
 ];
 
 export const experience = [
   {
     company: "Hirsch Bedner Associates (HBA)",
+    role: "Designer",
+    location: "Atlanta, GA",
+    dates: "2024 - Present",
+    bullets: [
+      "Lead design presentations and shape experience-led hospitality interiors from concept through installation, including design narratives, consultant coordination, and FF&E development.",
+      "Collaborate with clients, international consultants, and vendors to translate design intent into built form through procurement support, installation coordination, and design execution.",
+      "Review documentation, shop drawings, samples, and specifications to support technical accuracy, design quality, and alignment with project standards.",
+    ],
+  },
+  {
+    company: "Hirsch Bedner Associates (HBA)",
     role: "Junior Designer",
     location: "Atlanta, GA",
-    dates: "Jul 2022 - Present",
+    dates: "2022 - 2024",
     bullets: [
-      "Worked with project managers and other designers on luxury hotels and multi-family projects.",
-      "Presented concept and FF&E selections to clients.",
-      "Assisted in creating documentation and rendering packages.",
+      "Contributed to schematic design, design development, and construction documentation across hospitality projects.",
+      "Supported material palettes, FF&E specifications, presentation materials, design standards, and site coordination to maintain design accuracy from concept through completion.",
     ],
   },
   {
-    company: "Compass Real Estate Campaign",
-    role: "SCADpro Collaboration",
-    location: "Atlanta, GA",
-    dates: "Mar - May 2022",
-    bullets: [
-      "Generated a creative, interactive and hyper-local campaign that connects with the community.",
-    ],
-  },
-  {
-    company: "Century 21 Real Estate Headquarter",
+    company: "Century 21 Real Estate Office",
     role: "Internship",
     location: "Jakarta, ID",
-    dates: "Sep 2020 - Mar 2021",
+    dates: "2020 - 2021",
     bullets: [
-      "Main interior designer, collaborated with the architect, engineering team, and contractor.",
-      "Designed custom-built furniture and allowed projects to finish on time by assisting with FF&E sourcing until the design is completed.",
-    ],
-  },
-  {
-    company: "Ciputra Group Apartment",
-    role: "Internship",
-    location: "Jakarta, ID",
-    dates: "Jul - Sep 2020",
-    bullets: [
-      "Initiated creative solutions for micro-apartment and brought a new lens of who millennials are to select suitable materials and FF&E.",
-    ],
-  },
-  {
-    company: "Colgate Palmolive Headquarter Renovation",
-    role: "SCADpro Collaboration",
-    location: "Hong Kong",
-    dates: "Apr - Jun 2019",
-    bullets: [
-      "Assisted Colgate's design team to renovate the main entrance, break room, and supermarket prototype.",
+      "Assisted with interior design development, furniture design, FF&E sourcing, and project coordination with the architect, engineering, and contractor.",
     ],
   },
 ];
@@ -124,11 +91,8 @@ export const involvements = [
 ];
 
 export const skills = [
-  { category: "Autodesk", items: "AutoCAD | Revit | 3Ds Max" },
-  { category: "Adobe Suite", items: "Photoshop | Illustrator | InDesign | Premier Pro | Dreamweaver" },
-  { category: "3D Software", items: "SketchUp | V-Ray | Enscape | Lumion | Corona Renderer" },
-  { category: "Microsoft Suite", items: "Word | Excel | PowerPoint" },
-  { category: "Industry", items: "Research | Space Planning | Programming | Sketching" },
+  { category: "Technical Visualization", items: "AutoCAD | Revit | Bluebeam | SketchUp | 3ds Max | Enscape | V-Ray" },
+  { category: "Adobe", items: "InDesign | Photoshop | Illustrator" },
 ];
 
 export interface ResumeProject {
@@ -140,6 +104,7 @@ export interface ResumeProject {
   tagline: string;
   overview: string;
   heroImage: string;
+  role: string;
 }
 
 export const resumeProjects: ResumeProject[] = [
@@ -153,6 +118,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "An upscale residential resort under construction featuring four luxury villas and 68 condominium residences, balancing contemporary architecture with a relaxed coastal sensibility.",
     heroImage: "/images/Turks & Caicos/BEACH BAR DUSK VIEW.jpg",
+    role: "FF&E, Technical Development, and Project Documentation",
   },
   {
     id: "modera-parkside",
@@ -164,6 +130,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "A Midtown Atlanta multifamily project shaped by the contrast between city energy and parkside calm, balancing sophistication with approachable, socially flexible amenity spaces.",
     heroImage: "/images/Modera Parkside Photos/Modera_Parkside_01.jpeg",
+    role: "Drawings, FF&E, Finishes, and Installation",
   },
   {
     id: "modera-mcgavock",
@@ -174,7 +141,8 @@ export const resumeProjects: ResumeProject[] = [
     tagline: "Refined Interiors for Music City's Creative Energy",
     overview:
       "A Nashville South Gulch multifamily project pairing urban energy with residential comfort through warm materials, tailored details, and flexible, welcoming amenity spaces.",
-    heroImage: "/images/Modera McGavock Nashville Photos/Modera_McGavock_02.jpeg",
+    heroImage: "/images/Modera McGavock Nashville Photos/0030-mcgavock-hero.jpg",
+    role: "Drawings, FF&E, Finishes, and Installation",
   },
   {
     id: "woodlawn",
@@ -186,6 +154,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "A layered multifamily amenity retreat pairing industrial materials with warmth and tactility, creating a sequence of spaces that feel active, social, and grounded.",
     heroImage: "/images/225 Woodlawn Renderings/N 04A_L1 Reception_3512_2022-10-19_1064.jpg",
+    role: "Drawing, FF&E and Finishes",
   },
   {
     id: "four-seasons-spa",
@@ -196,7 +165,8 @@ export const resumeProjects: ResumeProject[] = [
     tagline: "Sculpted by Light",
     overview:
       "A Midtown Atlanta spa renovation reimagining the guest journey through softness, luminosity, and layered texture, creating a calm and restorative progression.",
-    heroImage: "/images/Four Seasons Spa Renderings/N 13A_Spa  Reception_Opt 1_3506_2022-08-25_310.jpg",
+    heroImage: "/images/Four Seasons Spa Renderings/N 13D_Spa Treatment_Cam 01_2022-08-24_1064.jpg",
+    role: "FF&E and Finishes",
   },
   {
     id: "punta-cana",
@@ -208,6 +178,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "A coastal resort in development conceived as a calm escape shaped by light, texture, and landscape, communicating its Caribbean character through craft and atmosphere.",
     heroImage: "/images/Punta Cana Renderings/N 01A_3Bay Bedroom_3514.01_2024-08-02_743.jpg",
+    role: "Drawings, FF&E, and Finishes",
   },
   {
     id: "modera-decatur",
@@ -219,6 +190,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "Warm, layered amenity spaces capturing the walkable, community-driven spirit of downtown Decatur, fostering connection while preserving individual comfort.",
     heroImage: "/images/Modera Decatur Photos/PHOTO 1.jpg",
+    role: "Interior Design",
   },
   {
     id: "howarth-aesthetic",
@@ -230,6 +202,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "A Scottsdale aesthetics practice reframing the clinical environment through warmth, privacy, and hospitality-level detail — precise but not sterile, elevated but not theatrical.",
     heroImage: "/images/Howarth Aesthetic Renderings/N 04A_Reception_3524_2024-09-23_197.jpg",
+    role: "FF&E and Finishes",
   },
   {
     id: "doubletree-fandb",
@@ -241,6 +214,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "Three distinct dining concepts — specialty, Lebanese, and all-day three-meal — unified by a shared material language while each retains its own identity.",
     heroImage: "/images/DoubleTree by Hilton F&B Renderings/N 07A_Three Meal_3523_2025-06-19_197.jpg",
+    role: "FF&E and Finishes",
   },
   {
     id: "aqualina",
@@ -252,6 +226,7 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "A luxury residential retreat inspired by the calming qualities of water, blending modern elegance with coastal ease across lobby, spa, and wellness amenities.",
     heroImage: "/images/Aqualina Renderings/N 04A_Lobby_30176_Option02_2024-01-24_1064.jpg",
+    role: "FF&E and Finishes",
   },
   {
     id: "kaum-cultural-hub",
@@ -264,6 +239,7 @@ export const resumeProjects: ResumeProject[] = [
       "An award-winning capstone project rooted in the concept Interweave, bringing exhibition, workshop, performance, retail, and dining spaces together for local community life and cultural tourism.",
     heroImage:
       "/images/SCAD undergrad work/KAUM Cultural Community Hub/KAUM Cultural Community Hub - Jendela Maumere Gallery.jpg",
+    role: "Research, Concept, Space Planning, Drawings, FF&E, Finishes, and Visualization",
   },
   {
     id: "beach-resort",
@@ -275,5 +251,6 @@ export const resumeProjects: ResumeProject[] = [
     overview:
       "Conceived around the concept 'Potpourri of Growth' — a fluid, calming environment grounded in natural beauty, sustainability, and community wellness.",
     heroImage: "/images/SCAD undergrad work/Six Senses/Six Senses 1.png",
+    role: "Luxury Hospitality",
   },
 ];
