@@ -84,7 +84,7 @@ export default function AboutSection() {
             <div className={styles.aboutCredential}>
               <span className={styles.aboutCredentialLabel}>Focus</span>
               <span className={styles.aboutCredentialValue}>
-                Hospitality Interiors | FF&E | Concept Development | Design Documentation | Construct Administration
+                Hospitality Interiors | FF&E | Concept Development | Design Documentation | Construction Administration
               </span>
             </div>
           </div>

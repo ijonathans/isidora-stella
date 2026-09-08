@@ -179,7 +179,8 @@ function ContactPage() {
         <View style={{ height: 1, width: 90, backgroundColor: gold, marginTop: 28, marginBottom: 28, opacity: 0.8 }} />
         <Text style={{ fontSize: 11, color: "#c9c9c9", marginBottom: 6 }}>{resumeContact.email}</Text>
         <Text style={{ fontSize: 11, color: "#c9c9c9", marginBottom: 6 }}>{resumeContact.linkedin}</Text>
-        <Text style={{ fontSize: 11, color: "#c9c9c9" }}>{resumeContact.phone}</Text>
+        <Text style={{ fontSize: 11, color: "#c9c9c9", marginBottom: 6 }}>{resumeContact.phone}</Text>
+        <Text style={{ fontSize: 11, color: "#c9c9c9" }}>{resumeContact.whatsapp}</Text>
       </View>
     </Page>
   );
@@ -232,6 +233,7 @@ function ResumePage() {
           <Text style={{ fontSize: 9, color: "#555" }}>{resumeContact.email}</Text>
           <Text style={{ fontSize: 9, color: "#555" }}>{resumeContact.linkedin}</Text>
           <Text style={{ fontSize: 9, color: "#555" }}>{resumeContact.phone}</Text>
+          <Text style={{ fontSize: 9, color: "#555" }}>{resumeContact.whatsapp}</Text>
         </View>
       </View>
 

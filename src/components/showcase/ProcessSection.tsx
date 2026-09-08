@@ -20,32 +20,22 @@ const steps: ProcessStep[] = [
   {
     num: "01",
     title: "Getting to Know the Project",
-    body: "Every project begins with a conversation about goals, budget, timeline, scope, site, brand, and the people who will use the space. This gives the design a clear foundation before any decisions are made.",
+    body: "Every project begins with a conversation about goals, budget, timeline, site, and brand, and the people who will use the space. From there I begin shaping a direction through space planning, mood boards, and early material and furniture concepts, creating a point of view that feels right for the client, the location, and the experience of the space.",
   },
   {
     num: "02",
-    title: "Setting the Direction",
-    body: "Once the project is understood, I begin shaping the overall direction through mood boards, reference imagery, space planning, finish ideas, and early furniture concepts. The goal is to create a point of view that feels right for the client, the location, and the experience of the space.",
+    title: "Developing the Design",
+    body: "As the direction becomes clearer, the design moves into detail. Finishes, furniture, lighting, fabrics, and custom pieces are selected with both the look and the function of the space in mind, balancing how it feels against how it will hold up over time.",
   },
   {
     num: "03",
-    title: "Developing the Design",
-    body: "As the direction becomes clearer, the design moves into more detail. Finishes, furniture, lighting, fabrics, fixtures, and custom pieces are selected with both the look and function of the space in mind.",
+    title: "Drawing It Out",
+    body: "The design is translated into drawings, schedules, specifications, and presentation materials. These documents communicate the design clearly to the contractors, consultants, and vendors who bring it to life.",
   },
   {
     num: "04",
-    title: "Drawing It Out",
-    body: "The design is then translated into drawings, schedules, specifications, and presentation materials. These documents help communicate the design clearly to contractors, consultants, vendors, and the larger project team.",
-  },
-  {
-    num: "05",
     title: "Working Through the Details",
-    body: "As the project moves forward, I help review drawings, samples, finish options, furniture details, and vendor information. This keeps the design organized while allowing room for adjustments along the way.",
-  },
-  {
-    num: "06",
-    title: "Finishing Touches",
-    body: "The final stage brings everything together through furniture placement, lighting adjustments, styling, and small details. These last decisions help the space feel complete, comfortable, and memorable.",
+    body: "As the project moves forward, I review drawings, samples, and finish options, resolve questions as they come up on site, and help guide installation and styling. These final decisions bring everything together so the space feels complete, comfortable, and memorable.",
   },
 ];
 

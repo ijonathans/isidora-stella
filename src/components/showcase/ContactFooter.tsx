@@ -68,7 +68,7 @@ export default function ContactFooter() {
             Let&apos;s Begin a Conversation
           </motion.p>
           <motion.h2 {...fadeUp(0.1)} className={styles.contactHeading}>
-            For a colaborations, project inquireies <br /> or creative conversations, feel free to reach out.
+            For collaborations, project inquiries <br /> or creative conversations, feel free to reach out.
           </motion.h2>
 
           <motion.div {...fadeUp(0.18)} style={{ marginBottom: "2rem" }}>
@@ -93,7 +93,7 @@ export default function ContactFooter() {
             <div className={styles.contactAddress}>
               <p className={styles.contactAddressLabel}>WhatsApp</p>
               <address className={styles.contactAddressBody}>
-                <a href="https://wa.me/6281290624450" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>+62 812 9062 4450</a>
+                <a href="https://wa.me/6282210672622" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>+62 822 1067 2622</a>
               </address>
             </div>
 

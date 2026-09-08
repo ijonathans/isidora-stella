@@ -19,7 +19,7 @@ const accolades = [
   },
   {
     award: "30 Under 30 Interior Design",
-    category: "Named along emerging designers under 30 for design excellence, leadership, and industry impact.",
+    category: "Named among emerging designers under 30 for design excellence, leadership, and industry impact.",
     year: "2025",
     url: "https://info.interiordesign.net/interior-design-30/30",
   },

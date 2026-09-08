@@ -4,6 +4,7 @@ export const resumeContact = {
   linkedin: "isidorastellayubelia",
   linkedinUrl: "https://www.linkedin.com/in/isidorastellayubelia/",
   phone: "+1 (626) 764 2632",
+  whatsapp: "+62 822 1067 2622",
 };
 
 export const aboutMeText = [
